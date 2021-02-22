@@ -10,7 +10,7 @@ workgroup: Model-T
 keyword: Internet-Draft
 stand_alone: yes
 pi:
-  rfcedstyle: yes
+  RFCedstyle: yes
   toc: yes
   tocindent: yes
   sortrefs: yes
@@ -55,11 +55,12 @@ author:
 normative:
 
 informative: 
-   rfc3724:
-   rfc3552:
-   rfc7258:
-   rfc7624:
-   rfc8890:
+
+   RFC3724:
+   RFC3552:
+   RFC7258:
+   RFC7624:
+   RFC8890:
 
    saltzer:
      title: "End-to-end arguments in system design"
@@ -119,11 +120,11 @@ An end-to-end encrypted communications system, irrespective of the content or th
 End-to-end principle
 --------------------
 
-An important question in any review of the End-to-End Principle {{rfc3724}} is "what constitutes an end?" Intuitively, an "end" either sends messages or receives them, usually both; other systems on the path are just that - other systems. 
+An important question in any review of the End-to-End Principle {{RFC3724}} is "what constitutes an end?" Intuitively, an "end" either sends messages or receives them, usually both; other systems on the path are just that - other systems. 
 
 In 1984 the "end-to-end argument" was introduced {{saltzer}} as a design principle that helps guide placement of functions among the modules of a distributed computer system. It  suggests that functions placed at low levels of a system may be redundant or of little value when compared with the cost of providing them at that low level. It's  used to design around questions about which parts of the system should make which decisions, and as such the identity of the actual "speaker" or "end" may be less obvious than it appears. The communication described by Saltzer is between communicating processes, which may or may not be on the same physical machine, and may be implemented in various ways. For example, a BGP speaker is often implemented as a process that manages the Routing Information Base (RIB) and communicates with other BGP speakers using an operating system service that implements TCP. The RIB manager might find itself searching the RIB for prefixes that should be advertised to a peer, and performing "writes" to TCP for each one. TCP in this context often implements a variant of the algorithm described in RFC 868 (the "Nagle algorithm"), which accumulates writes in a buffer until there is no data in flight between the communicants, and then sends it - which might happen several times during a single search by the RIB manager. In that sense, the RIB manager might be thought of as the "end", because it decides what should be communicated, or TCP might be the "end", because it actually sends the TCP Segment, detects errors if they occur, retransmits it if necessary, and ultimately decides that the segment has been successfully transferred.
 
-However despite the nuance for engineers, it is now widely accepted that the communication system itself begins and ends with the user {{rfc8890}}. We imagine people (through an application's user interface) as components in a subsystem's design. An important exception to this in E2EE systems might be the use of public key infrastructure where a third party is often used in the authentication phase to enhance the larger system's trust model.
+However despite the nuance for engineers, it is now widely accepted that the communication system itself begins and ends with the user {{RFC8890}}. We imagine people (through an application's user interface) as components in a subsystem's design. An important exception to this in E2EE systems might be the use of public key infrastructure where a third party is often used in the authentication phase to enhance the larger system's trust model.
 
 Another important question is "what statement exactly summarizes the end-to-end principle?". Saltzer answered this in two ways, the first of which is that the service implementing the transaction is most correct if it implements the intent of the application that sent it, which would be to move the message toward the destination address in the relevant IP header. Salzer's more thorough treatment, however, deals with end cases that come up in implementation: "Examples discussed in the paper", according to the abstract, "include bit error recovery, security using encryption, duplicate message suppression, recovery from system crashes, and delivery acknowledgement." It also notes that there is occasionally a rationale for ignoring the end-to-end arguments for the purposes of optimization. There may be other user expectations or design features, some explained below, which need to be balanced with the end-to-end argument.
 
@@ -204,7 +205,7 @@ While the formal definition and properties of an E2EE system relate to communica
 A conversation is confidential
 ------------------------------
 
-Users talking to one another in an E2EE system should be the only ones that know what they are talking about {{rfc7624}}. People have the right to privacy as defined in international human rights law and within the right to free expression and to hold opinions is inferred the right to whisper, whether or not they are using digital communications or walking through a field.
+Users talking to one another in an E2EE system should be the only ones that know what they are talking about {{RFC7624}}. People have the right to privacy as defined in international human rights law and within the right to free expression and to hold opinions is inferred the right to whisper, whether or not they are using digital communications or walking through a field.
 
 Providers are trustworthy
 -------------------------
@@ -214,7 +215,7 @@ While trustworth can be rigourously defined from an engineering perspective, for
 Trustworthy
 : A system is completely trustworthy if and only if it is completely resilient, reliable, accountable, and secure in a way that consistently meets users’ expectations. The opposite of trustworthy is untrustworthy.
 
-This definition is complete in its positive and negative aspects: what it is, eg "Worthy of confidence" and what it isn't, eg in RFC 7258: "behavior that subverts the intent of  communicating partieswithout the agreement of those parties." {{rfc7258}}
+This definition is complete in its positive and negative aspects: what it is, eg "Worthy of confidence" and what it isn't, eg in RFC 7258: "behavior that subverts the intent of  communicating partieswithout the agreement of those parties." {{RFC7258}}
 
 Therefore, a trustworthy end-to-end encrypted communication system is the set of functions needed by two or more parties to communicate among each other in a confidential and authenticated fashion without any third party having access to the content of that communication where the functions that offer the confidentiallity and authenticity are trustworthy.
 
@@ -235,7 +236,7 @@ Not only should an E2EE system value user privacy by not allowing pattern infere
 The e2ee system is not compromised
 ----------------------------------
 
-RFC 3552 talks about the Internet Threat model such as the assumption that the user can expect any communications systems, but perhaps especially E2EE systems, not being compromised.{{rfc3552}} Compromises to E2EE systems are often referred to as "backdoors" but are often presented as additional design features like "key escrow." Users of E2EE systems would not expect a front, back or side door entrance into their confidential conversations and would expect a provider to actively resist-- technically and legally-- compromise through these means.
+RFC 3552 talks about the Internet Threat model such as the assumption that the user can expect any communications systems, but perhaps especially E2EE systems, not being compromised.{{RFC3552}} Compromises to E2EE systems are often referred to as "backdoors" but are often presented as additional design features like "key escrow." Users of E2EE systems would not expect a front, back or side door entrance into their confidential conversations and would expect a provider to actively resist-- technically and legally-- compromise through these means.
 
 Conclusions
 ===========
