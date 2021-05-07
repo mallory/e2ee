@@ -126,7 +126,7 @@ It is, however, not trivial to establish the definition of an end point in isola
 
 However despite the nuance for engineers, it is now widely accepted that the communication system itself begins and ends with the user {{RFC8890}}. We imagine people (through an application's user interface, or user agent) as components in a subsystem's design. An important exception to this in E2EE systems might be the use of public key infrastructure where a third party is often used in the authentication phase to enhance the larger system's trust model.
 
-However we hesistate to equate user agent and user, especially as user-agent computing becomes more complex and often more proprietary, making the user agent less of an "advocate" for the best interests of the user, eg being able to fulfil user expectations, which we treat in a later section.
+We cannot equate user agent and user, yet we also cannot fully separate them. As user-agent computing becomes more complex and often more proprietary, the user agent less of an "advocate" for the best interests of the user. This is why we focus in a later section on the e2ee system being able to fulfil user expectations.
 
 End-to-end principle
 --------------------
