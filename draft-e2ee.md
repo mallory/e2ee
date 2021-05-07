@@ -1,12 +1,12 @@
 --- 
 title: Definition of End-to-end Encryption
 abbrev: e2ee
-docname: draft-knodel-e2ee-definition
+docname: draft-knodel-e2ee-definition-01
 category: info
 
 ipr: trust200902
-area: 
-workgroup: Model-T
+area: sec
+workgroup: mls
 keyword: Internet-Draft
 stand_alone: yes
 pi:
