@@ -6,5 +6,5 @@ Install dependencies:
 
 Draft editing workflow:
 
-      # $EDITOR draft-glossary.md
+      # $EDITOR draft-name.md
       # make
