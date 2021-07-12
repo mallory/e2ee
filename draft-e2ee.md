@@ -96,6 +96,13 @@ informative:
      author:
         - ins: Global Encryption Coaliation
      target: https://www.globalencryption.org/2020/11/breaking-encryption-myths/
+     
+   Komlo:
+     title: "Defining end-to-end security"
+     date: 2021
+     author:
+        - ins: Chelsea Komlo
+     target: https://github.com/chelseakomlo/e2ee/blob/master/e2ee_definition.pdf
 
 --- abstract
 
@@ -115,7 +122,7 @@ These dimensions taken as a whole comprise a generally comprehensible picture of
 Formal definition of end-to-end encryption
 ==========================================
 
-An end-to-end encrypted communications system, irrespective of the content or the specific methods employed, relies on two important and rigorous technical concepts: The end-to-end principle, defined in the IETF because of its importance to internet protocols; and encryption, an application of cryptography and the primary means employed by the IETF to secure internet protocols.
+An end-to-end encrypted communications system, irrespective of the content or the specific methods employed, relies on two important and rigorous technical concepts: The end-to-end principle and what defines an end, according to the IETF because of its importance to internet protocols; and encryption, an application of cryptography and the primary means employed by the IETF to secure internet protocols. In the tradition of cryptography it's also possible to achieve a succinct definition of end-to-end encrypted security.
 
 End point
 ---------
@@ -153,6 +160,14 @@ There are dozens of documents in the RFC Series that fundamentally and technical
 
 While encryption is fundamental to the end-to-end principle, it does not stand alone. As in the history of all security, authentication and data integrity properties are also linked, and contributed to the end-to-end nature of E2EE. Permission of data manipulation or pseudo-identities for third parties to allow access under the user's identity are against the intention of E2EE. Thus, end point authenticity must be established as (sub-)identities of the end user, and end-to-end integrity must also be maintained by the system. There is considerable system design flexibility available in entity authentication mechanisms and data authentication that still meet this requirement.
 
+Succinct definition of end-to-end security
+------------------------------------------
+
+A succinct definition for end-to-end security can describe the security of the system by the probability of an adversary's success in breaking the system. Example snippet:
+
+The adversary successfully subverts an end-to-end encrypted system if it can succeed in either of the following: 1) the adversary can produce the participant's local state (meaning the adversary has learned the contents of participant's messages), or 2) the states of conversation participants do not match (meaning that the adversary has influenced their communication in some way). To prevent the adversary from trivially winning, we do not allow the adversary to compromise the participants' local state.
+
+We can say that a system is end-to-end secure if the adversary has negligible probability of success in either of these two scenarios {{komlo}}.
 
 End-to-end encrypted systems design
 ===================================
