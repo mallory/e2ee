@@ -97,7 +97,7 @@ informative:
         - ins: Global Encryption Coaliation
      target: https://www.globalencryption.org/2020/11/breaking-encryption-myths/
      
-   Komlo:
+   komlo:
      title: "Defining end-to-end security"
      date: 2021
      author:
