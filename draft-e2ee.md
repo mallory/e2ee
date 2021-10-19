@@ -184,13 +184,13 @@ Defining a technology can also be done by inspecting what it does, or is meant t
 ### Necessary features
 
 Authenticity
-: A system provides message authenticity if the recipient is certain who sent the message and the sender is certain who received it.
+: A system provides message authenticity if the recipient and sender agree on each other's identities and the contents of their communications.
 
 Confidentiality
 : A system provides message confidentiality if only the sender and intended recipient(s) can read the message plaintext, i.e. messages are encrypted by the sender such that only the intended recipient(s) can decrypt them.
 
 Integrity
-: A system provides message integrity when it guarantees that messages has not been modified in transit, i.e. a recipient is assured that the message they have received is exactly what the sender intended to send.
+: A system provides message integrity when it guarantees that messages that have been modified in transit can be detected reliably, i.e. a recipient is assured that a message cannot be undetectably modified in any way.
 
 ### Optional/desirable features
 
