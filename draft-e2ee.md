@@ -257,7 +257,7 @@ Therefore, a trustworthy end-to-end encrypted communication system is the set of
 Access by a third-party is impossible
 -------------------------------------
 
-No matter the specifics, any methods used to access to the content of the messages by a third party would violate a user's expectations of E2EE messaging. "[T]hese access methods scan message contents on the user’s [device]", which are then "scanned for matches against a database of prohibited content before, and sometimes after, the message is sent to the recipient" {{GEC-EU}}. Third party access also covers cases without scanning -- namely, it should be possible for any third-party end point to access the data regardless of reason.
+No matter the specifics, any methods used to access to the content of the messages by a third party would violate a user's expectations of E2EE messaging. "[T]hese access methods scan message contents on the user’s [device]", which are then "scanned for matches against a database of prohibited content before, and sometimes after, the message is sent to the recipient" {{GEC-EU}}. Third party access also covers cases without scanning -- namely, it should not be possible for any third-party end point to access the data regardless of reason.
 
 If a method makes private communication, intended to be sent over an encrypted channel between end points, available to parties other than the sender and intended recipient(s), without formally interfering with channel confidentiality, that method violates the understood expectation of that security property.
 
