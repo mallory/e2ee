@@ -206,6 +206,9 @@ Forward secrecy
 Post-compromise security
 : Post-compromise security is a security property that seeks to guarantee a way to recover from an end-point compromise (and consequently that communication sent post-compromise is protected with the same security properties that existed before the compromise). It is usually achieved by adding ephemeral key exchanges to the derivation of encryption/decryption keys.
 
+Metadata obfuscation
+: Steps should be taken to minimize metadata such as user obfuscating IP addresses, reducing non-routing metadata, and avoiding extraneous message headers can enhance the confidentiality and security features of E2EE systems.
+
 Challenges
 ----------
 
