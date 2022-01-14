@@ -144,7 +144,14 @@ In 1984 the "end-to-end argument" was introduced {{saltzer}} as a design princip
 
 Another important question is "what statement exactly summarizes the end-to-end principle?". Saltzer answered this in two ways, the first of which is that the service implementing the transaction is most correct if it implements the intent of the application that sent it, which would be to move the message toward the destination address in the relevant IP header. Salzer's more thorough treatment, however, deals with end cases that come up in implementation: "Examples discussed in the paper", according to the abstract, "include bit error recovery, security using encryption, duplicate message suppression, recovery from system crashes, and delivery acknowledgement." It also notes that there is occasionally a rationale for ignoring the end-to-end arguments for the purposes of optimization. There may be other user expectations or design features, some explained below, which need to be balanced with the end-to-end argument.
 
-More concisely, suppose that an end user is the end identity. An E2EE system may run between potential end points at different network layers within the end identity's possession. These end points may then be considered acceptable sub-identities provided that no path between the end identity and sub-identity is accessible by any third party. 
+More concisely, suppose that an end user is the end identity. An E2EE system may run between potential end points at different network layers within the end identity's possession. These end points may then be considered acceptable sub-identities provided that no path between the end identity and sub-identity is accessible by any third party. There are quite a number of examples of common situations where tunnels are used and this does not apply. For instance, the examples below all provide encryption by which data is turned into clear text in locations that are not under control of the end user:
+
+*  The common VPNS business model whereby a TLS or an IPsec tunnel terminates at the service provider's server and is subsequently forwarded to its destination elsewhere in unencrypted form;
+* Email transport whereby an unencrypted message is traverses from sending mail user agent, between various mail transfer agents, and finally to the a receiving mail user agent, all over TLS protected connections;
+* The encrypted connection of last mile connections such as those in 4G LTE;
+
+
+
 This definition of end points accounts for potentially several devices owned by a user, and various application-specific forwarding or delivery options among them. It also accounts for E2EE systems running at different network layers. Regardless of the sub-identities allowed, the definition is contingent on that all end sub-identities are under the end identity's control and no third party (or their sub-identities, e.g. system components under third-party control) can access the end sub-identities nor links between the sub-identity and end identity. 
 This creates a tree hierarchy with the end user as the root at the top, and all potential end points being under their direct control, without third party access. 
 As an example, decryption at organizational network router before message forwarding (encrypted or unencrypted) to the end identity does not constitute E2EE. However, E2EE to a user's personal device and subsequent E2EE message forwarding to another one of the user's personal devices (without access available to any third party at any link or on device) maintains E2EE data possession for the user.
@@ -291,10 +298,15 @@ The folks at Riseup and the LEAP Encryption Access Project have articulated bril
 
 Ryan Polk at the Internet Society has energy to spare when it comes to organising meaningful contributions, like this one, for the technical advisors of the Global Encryption Coalition.
 
+Adrian Farrel,   are acknowleded for their review, comments, or questions that lead to improvement of this document.
+
 Security Considerations
 =======================
 
-As this draft concerns an informational document, there are no security considerations.
+This document does not specify new protocols and therefore does not bring up technical security considerations.
+
+Because some policy decicions may affect the security of the Internet, a clear and shared definition of end to end encrypted communication is important in policy related discussions.  This document aims to provide that clarity.
+
 
 IANA Considerations
 ===================
