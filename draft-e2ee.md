@@ -231,7 +231,7 @@ Users need to communicate in groups, but this presents major problems of scale f
 
 The whole of a user's data should remain secure if only one message is compromised. However, for encrypted communication, you must currently choose between forward secrecy or the ability to communicate asynchronously. This presents a problem for application design that uses end-to-end encryption for asynchronous messaging over email, RCS, etc.
 
-Users of end-to-end encrypted systems should be able to communicate with any medium of their choice, from text to large files, however there is often a resource problem because there are no open protocols to allow users to securely share the same resource in an end-to-end encrypted system. Client-side, e.g. end-point, activities like URL unfurling scanning.
+Users of end-to-end encrypted systems should be able to communicate with any medium of their choice, from text to large files, however there is often a resource problem because there are no open protocols to allow users to securely share the same resource in an end-to-end encrypted system.
 
 Usability considerations are sometimes in conflict with security considerations, such as message read status, typing indicators, URL/link previews.
 
