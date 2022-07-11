@@ -220,7 +220,7 @@ Challenges
 
 Earlier in this document end-to-end encryption was defined using formal definitions assumed by internet protocol implementations. Also because the IETF is the place for "producing high quality, relevant technical documents that influence the way people design, use, and manage the Internet" {{rfc3935}} the reader can be confident that current deployments of end-to-end encrypted technologies in the IETF indicate the cutting edge of their developments, which is yet another way to define what is, or ideally should be, a particular kind of technology.
 
-Below is an exhaustive, yet vaguely summarised, list of the challenges currently faced by protocol designers of end-to-end encrypted systems. Problems that fall outside of this list are likely 1) unnecessary feature requests that negligibly, or do nothing to, achieve the aims of end-to-end encrypted systems or are 2) in some way antithetical to the goals of end-to-end encrypted systems.
+Below is best effort list of the challenges currently faced by protocol designers of end-to-end encrypted systems. Problems that fall outside of this list are likely 1) unnecessary feature requests that negligibly, or do nothing to, achieve the aims of end-to-end encrypted systems or are 2) in some way antithetical to the goals of end-to-end encrypted systems.
 
 Public key verification is very difficult for users to manage. Authentication of the two ends is required for confidential conversations. Therefore solving the problem of verification of public keys is a major concern for any end-to-end encrypted system design. Some applications bind together the account identity and the key, and leave users to establish a trust relationship between them, assisted by public key fingerprint information.
 
