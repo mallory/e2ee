@@ -192,7 +192,7 @@ Authenticity
 : A system provides message authenticity if the recipient and sender attest to each other's identities in relation to the contents of their communications.
 
 Confidentiality
-: A system provides message confidentiality if only the sender and intended recipient(s) can read the message plaintext, i.e. messages are encrypted by the sender such that only the intended recipient(s) can decrypt them.
+: A system provides message confidentiality if only the sender and intended recipient(s) can read the message plaintext, i.e. messages are encrypted by the sender such that only the recipient(s) shared and agreed by all recipients can decrypt them.
 
 Integrity
 : A system provides message integrity when it guarantees that messages that have been modified in transit can be detected reliably, i.e. a recipient is assured that a message cannot be undetectably modified in any way.
