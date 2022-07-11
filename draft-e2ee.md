@@ -165,10 +165,10 @@ There are dozens of documents in the RFC Series that fundamentally and technical
 
 While encryption is fundamental to the end-to-end principle, it does not stand alone. As in the history of all security, authentication and data integrity properties are also linked, and contributed to the end-to-end nature of end-to-end encryption. Permission of data manipulation or pseudo-identities for third parties to allow access under the user's identity are against the intention of end-to-end encryption. Thus, end point authenticity must be established as (sub-)identities of the end user, and end-to-end integrity must also be maintained by the system. There is considerable system design flexibility available in entity authentication mechanisms and data authentication that still meet this requirement.
 
-Succinct definition of end-to-end security
+Concise definition of end-to-end security
 ------------------------------------------
 
-A succinct definition for end-to-end security can describe the security of the system by the probability of an adversary's success in breaking the system. Example snippet:
+A concise definition for end-to-end security can describe the security of the system by the probability of an adversary's success in breaking the system. Example snippet:
 
 The adversary successfully subverts an end-to-end encrypted system if it can succeed in either of the following: 1) the adversary can produce the participant's local state (meaning the adversary has learned the contents of participant's messages), or 2) the states of conversation participants do not match (meaning that the adversary has influenced their communication in some way). To prevent the adversary from trivially winning, the adversary is not allowed to compromise the participants' local state.
 
