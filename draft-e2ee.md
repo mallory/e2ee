@@ -1,12 +1,12 @@
 --- 
 title: Definition of End-to-end Encryption
 abbrev: e2ee
-docname: draft-knodel-e2ee-definition-02
+docname: draft-knodel-e2ee-definition-03
 category: info
 
 ipr: trust200902
 area: sec
-workgroup: mls
+workgroup: sec
 keyword: Internet-Draft
 stand_alone: yes
 pi:
@@ -106,7 +106,7 @@ informative:
 
 --- abstract
 
-End-to-end encryption (E2EE) is an application of cryptography in communications systems between endpoints. E2EE systems are unique in providing features of confidentiality, integrity and authenticity for users. Improvements to E2EE strive to maximise the system's security while balancing usability and availability. Users of E2EE communications expect trustworthy providers of secure implementations to respect and protect their right to whisper.
+End-to-end encryption (E2EE) is an application of cryptography in communication systems between endpoints. E2EE systems are unique in providing features of confidentiality, integrity and authenticity for users. Improvements to E2EE strive to maximise the system's security while balancing usability and availability. Users of E2EE communications expect trustworthy providers of secure implementations to respect and protect their right to whisper.
 
 --- middle
 
@@ -115,25 +115,25 @@ Introduction
 
 This document defines end-to-end encryption (E2EE) using three different dimensions that together comprise a full definition of E2EE, which can be applied in a variety of contexts.
 
-The first is a formal definition that draws on the basic understanding of end points and cryptography. The second looks at E2EE systems from a design perspective, both its fundamental features and the direction of travel towards improving those features. Lastly we consider the expectations of the user of E2EE systems.
+The first is a formal definition that draws on the basic understanding of end points and cryptography. The second looks at E2EE systems from a design perspective, both its fundamental features and proposed improvements on those features. Lastly this document considers the expectations of the user of E2EE systems.
 
 These dimensions taken as a whole comprise a generally comprehensible picture of consensus at the IETF as to what is end-to-end encryption, irrespective of application, from messaging to video conferencing, and between any number of end points.
 
 Formal definition of end-to-end encryption
 ==========================================
 
-An end-to-end encrypted communications system, irrespective of the content or the specific methods employed, relies on two important and rigorous technical concepts: The end-to-end principle and what defines an end, according to the IETF because of its importance to internet protocols; and encryption, an application of cryptography and the primary means employed by the IETF to secure internet protocols. In the tradition of cryptography it's also possible to achieve a succinct definition of end-to-end encrypted security.
+An end-to-end encrypted communications system, irrespective of the content or the specific methods employed, relies on two important and rigorous technical concepts: The end-to-end principle and what defines an end, according to the IETF because of its importance to internet protocols; and encryption, an application of cryptography and the primary means employed by the IETF to secure internet protocols. In the tradition of cryptography it is also possible to achieve a concise definition of end-to-end encrypted security.
 
 End point
 ---------
 
 Intuitively, an "end" either sends messages or receives them, usually both; other systems on the path are just that - other systems. 
 
-It is, however, not trivial to establish the definition of an end point in isolation, because its existence inherently depends on at least one other entity in a communications system. That is why we will now move directly into an analysis of the end-to-end principle, which introduces nuance, described in the following sub-section.
+It is, however, not trivial to establish the definition of an end point in isolation, because its existence inherently depends on at least one other entity in a communications system. Instead the end-to-end principle, which is well established in internet standards and introduces nuance, is described in the following sub-section.
 
-However despite the nuance for engineers, it is now widely accepted that the communication system itself begins and ends with the user {{RFC8890}}. We imagine people (through an application's user interface, or user agent) as components in a subsystem's design. An important exception to this in E2EE systems might be the use of public key infrastructure where a third party is often used in the authentication phase to enhance the larger system's trust model. Responsible use of of public key infrastructure is required in such cases, such that the E2EE system does not admit third parties under the user's identity.
+However despite the nuance for engineers, it is now widely accepted that the communication system itself begins and ends with the user {{RFC8890}}. Imagine people (through an application's user interface, or user agent) as components in a subsystem's design. An important exception to this in E2EE systems might be the use of public key infrastructure where a third party is often used in the authentication phase to enhance the larger system's trust model. Responsible use of of public key infrastructure is required in such cases, such that the E2EE system does not admit third parties under the user's identity.
 
-We cannot equate user agent and user, yet we also cannot fully separate them. As user-agent computing becomes more complex and often more proprietary, the user agent becomes less of an "advocate" for the best interests of the user. This is why we focus in a later section on the E2EE system being able to fulfill user expectations.
+User agent and user cannot be equated, yet they cannot be fully separated. As user-agent computing becomes more complex and often more proprietary, the user agent becomes less of an "advocate" for the best interests of the user. This is why this document introduces a later section on the E2EE system being able to fulfill user expectations.
 
 End-to-end principle
 --------------------
@@ -161,7 +161,7 @@ Encryption
 
 From draft-dkg-hrpc-glossary-00, encryption is fundamental to the end-to-end principle. "End-to-End: The principal of extending characteristics of a protocol or system as far as possible within the system. For example, end-to-end instant message encryption would conceal communication content from one user's instant messaging application through any intermediate devices and servers all the way to the recipient's instant messaging application. If the message was decrypted at any intermediate point--for example at a service provider--then the property of end-to-end encryption would not be present."{{dkg}} Note that this only talks about the contents of the communication and not the metadata generated from it.
 
-The way to achieve a truly end-to-end communications system is indeed to encrypt the content of the data exchanged between the endpoints, e.g. sender(s) and receiver(s). The more common end-to-end technique for encrypting uses the double-ratchet algorithm with an authenticated encryption scheme, present in many modern messenger applications such as those considered in the IETF Messaging Layer Security working group, whose charter is to create a document that satisfies the need for several Internet applications for group key establishment and message protection protocols {{mls}}. OpenPGP, mostly used for email, uses a different technique to achieve encryption. It is also chartered in the IETF to create a specification that covers object encryption, object signing, and identity certification {{openpgp}}. Both protocols rely on the use of asymmetric and symmetric encryption, and exchange public keys with amongst end points.
+The way to achieve a truly end-to-end communications system is indeed to encrypt the content of the data exchanged between the endpoints, e.g. sender(s) and receiver(s). The more common end-to-end technique for encrypting uses the double-ratchet algorithm with an authenticated encryption scheme, present in many modern messenger applications such as those considered in the IETF Messaging Layer Security working group, whose charter is to create a document that satisfies the need for several Internet applications for group key establishment and message protection protocols {{mls}}. OpenPGP, mostly used for email, uses a different technique to achieve encryption. It is also chartered in the IETF to create a specification that covers object encryption, object signing, and identity certification {{openpgp}}. Both protocols rely on the use of asymmetric and symmetric encryption, and exchange public keys amongst end points.
 
 There are dozens of documents in the RFC Series that fundamentally and technically define encryption schemes. Perhaps interesting work to be done would be to survey all existing documents of this kind to define, in aggregate, their common features. The point is, the IETF has clear mandate and demonstrated expertise in defining the specifics of encrypted communications of the internet.
 
@@ -172,7 +172,7 @@ Succinct definition of end-to-end security
 
 A succinct definition for end-to-end security can describe the security of the system by the probability of an adversary's success in breaking the system. Example snippet:
 
-The adversary successfully subverts an end-to-end encrypted system if it can succeed in either of the following: 1) the adversary can produce the participant's local state (meaning the adversary has learned the contents of participant's messages), or 2) the states of conversation participants do not match (meaning that the adversary has influenced their communication in some way). To prevent the adversary from trivially winning, we do not allow the adversary to compromise the participants' local state.
+The adversary successfully subverts an end-to-end encrypted system if it can succeed in either of the following: 1) the adversary can produce the participant's local state (meaning the adversary has learned the contents of participant's messages), or 2) the states of conversation participants do not match (meaning that the adversary has influenced their communication in some way). To prevent the adversary from trivially winning, the adversary is not allowed to compromise the participants' local state.
 
 We can say that a system is end-to-end secure if the adversary has negligible probability of success in either of these two scenarios {{komlo}}.
 
@@ -181,7 +181,7 @@ End-to-end encrypted systems design
 
 When looking at E2EE systems from a design perspective, the first consideration is the list of fundamental features that distinguish an E2EE system from one that does not employ E2EE. Secondly one must consider the direction of travel for improving the features of E2EE systems. In other words, what challenges are the designers, developers and implementers of E2EE systems facing?
 
-The features and challenges listed below are framed holistically rather than from the perspective of their design, development, implementation or use.
+The features and challenges listed below are framed comprehensively rather than from the perspective of their design, development, implementation or use.
 
 Features
 --------
@@ -214,12 +214,12 @@ Post-compromise security
 : Post-compromise security is a security property that seeks to guarantee future confidentiality and integrity even on the face of an end-point compromise (and consequently that communication sent post-compromise is protected with the same security properties that existed before the compromise). It is usually achieved by adding new ephemeral key exchanges to the derivation of encryption/decryption keys.
 
 Metadata obfuscation
-: Digital communication inevitably generates data other than the content of the communication itself, such as IP addresses, date and time, and more. Steps should be taken to minimize metadata leakage such as user obfuscating IP addresses, reducing non-routing metadata, and avoiding extraneous message headers can enhance the confidentiality and security features of E2EE systems.
+: Digital communication inevitably generates data other than the content of the communication itself, such as IP addresses, date and time. To enhance the confidentiality and security of E2EE systems, steps should be taken to minimize metadata leakage such as user obfuscating IP addresses, reducing non-routing metadata, and avoiding extraneous message headers.
 
 Challenges
 ----------
 
-Earlier we defined end-to-end encryption using formal definitions assumed by internet protocol implementations. Also because "the IETF is a place for state-of-the-art producing high quality, relevant technical documents that influence the way people design, use, and manage the Internet" we can be confident that current deployments of end-to-end encrypted technologies in the IETF indicate the cutting edge of their developments, yet another way to define what is, or ideally should be, how a technology is defined.
+Earlier in this document end-to-end encryption was defined using formal definitions assumed by internet protocol implementations. Also because "the IETF is a place for state-of-the-art producing high quality, relevant technical documents that influence the way people design, use, and manage the Internet" the reader can be confident that current deployments of end-to-end encrypted technologies in the IETF indicate the cutting edge of their developments, which is yet another way to define what is, or ideally should be, a particular kind of technology.
 
 Below is an exhaustive, yet vaguely summarised, list of the challenges currently faced by protocol designers of end-to-end encrypted systems. In other words, in order to realise the goals of end-to-end encrypted systems, both for users and implementers (see previous section), these problems must be tackled. Problems that fall outside of this list are likely 1) unnecessary feature requests that negligibly, or do nothing to, achieve the aims of end-to-end encrypted systems or are 2) in some way antithetical to the goals of end-to-end encrypted systems.
 
@@ -252,7 +252,7 @@ Users talking to one another in an E2EE system should be the only ones that know
 Providers are trustworthy
 -------------------------
 
-While "trustworthy" can be rigourously defined from an engineering perspective, for the purposes of this document we choose a definition of Trustworthy inspired by an internal workshop by Internet Society staff:
+While "trustworthy" can be rigourously defined from an engineering perspective, for the purposes of this document a definition inspired by an internal workshop for Internet Society staff is sufficient:
 
 Trustworthy
 : A system is completely trustworthy if and only if it is completely resilient, reliable, accountable, and secure in a way that consistently meets users’ expectations. The opposite of trustworthy is untrustworthy.
