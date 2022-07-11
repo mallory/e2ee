@@ -106,16 +106,16 @@ informative:
 
 --- abstract
 
-End-to-end encryption (E2EE) is an application of cryptography in communication systems between endpoints. E2EE systems are unique in providing features of confidentiality, integrity and authenticity for users. Improvements to E2EE strive to maximise the system's security while balancing usability and availability. Users of E2EE communications expect trustworthy providers of secure implementations to respect and protect their right to whisper.
+End-to-end encryption is an application of cryptography in communication systems between endpoints. End-to-end encrypted systems are unique in providing features of confidentiality, integrity and authenticity for users. Improvements to end-to-end encryption strive to maximise the system's security while balancing usability and availability. Users of end-to-end encrypted communications expect trustworthy providers of secure implementations to respect and protect their right to whisper.
 
 --- middle
 
 Introduction
 ============
 
-This document defines end-to-end encryption (E2EE) using three different dimensions that together comprise a full definition of E2EE, which can be applied in a variety of contexts.
+This document defines end-to-end encryption using three different dimensions that together comprise a full definition of end-to-end encryption, which can be applied in a variety of contexts.
 
-The first is a formal definition that draws on the basic understanding of end points and cryptography. The second looks at E2EE systems from a design perspective, both its fundamental features and proposed improvements on those features. Lastly this document considers the expectations of the user of E2EE systems.
+The first is a formal definition that draws on the basic understanding of end points and cryptography. The second looks at end-to-end encrypted systems from a design perspective, both its fundamental features and proposed improvements on those features. Lastly this document considers the expectations of the user of end-to-end encrypted systems.
 
 These dimensions taken as a whole comprise a generally comprehensible picture of consensus at the IETF as to what is end-to-end encryption, irrespective of application, from messaging to video conferencing, and between any number of end points.
 
@@ -131,9 +131,9 @@ Intuitively, an "end" either sends messages or receives them, usually both; othe
 
 It is, however, not trivial to establish the definition of an end point in isolation, because its existence inherently depends on at least one other entity in a communications system. Instead the end-to-end principle, which is well established in internet standards and introduces nuance, is described in the following sub-section.
 
-However despite the nuance for engineers, it is now widely accepted that the communication system itself begins and ends with the user {{RFC8890}}. Imagine people (through an application's user interface, or user agent) as components in a subsystem's design. An important exception to this in E2EE systems might be the use of public key infrastructure where a third party is often used in the authentication phase to enhance the larger system's trust model. Responsible use of of public key infrastructure is required in such cases, such that the E2EE system does not admit third parties under the user's identity.
+However despite the nuance for engineers, it is now widely accepted that the communication system itself begins and ends with the user {{RFC8890}}. Imagine people (through an application's user interface, or user agent) as components in a subsystem's design. An important exception to this in end-to-end encrypted systems might be the use of public key infrastructure where a third party is often used in the authentication phase to enhance the larger system's trust model. Responsible use of of public key infrastructure is required in such cases, such that the end-to-end encrypted system does not admit third parties under the user's identity.
 
-User agent and user cannot be equated, yet they cannot be fully separated. As user-agent computing becomes more complex and often more proprietary, the user agent becomes less of an "advocate" for the best interests of the user. This is why this document introduces a later section on the E2EE system being able to fulfill user expectations.
+User agent and user cannot be equated, yet they cannot be fully separated. As user-agent computing becomes more complex and often more proprietary, the user agent becomes less of an "advocate" for the best interests of the user. This is why this document introduces a later section on the end-to-end encrypted system being able to fulfill user expectations.
 
 End-to-end principle
 --------------------
@@ -144,17 +144,15 @@ In 1984 the "end-to-end argument" was introduced {{saltzer}} as a design princip
 
 Another important question is "what statement exactly summarizes the end-to-end principle?". Saltzer answered this in two ways, the first of which is that the service implementing the transaction is most correct if it implements the intent of the application that sent it, which would be to move the message toward the destination address in the relevant IP header. Salzer's more thorough treatment, however, deals with end cases that come up in implementation: "Examples discussed in the paper", according to the abstract, "include bit error recovery, security using encryption, duplicate message suppression, recovery from system crashes, and delivery acknowledgement." It also notes that there is occasionally a rationale for ignoring the end-to-end arguments for the purposes of optimization. There may be other user expectations or design features, some explained below, which need to be balanced with the end-to-end argument.
 
-More concisely, suppose that an end user is the end identity. An E2EE system may run between potential end points at different network layers within the end identity's possession. These end points may then be considered acceptable sub-identities provided that no path between the end identity and sub-identity is accessible by any third party. There are quite a number of examples of common situations where tunnels are used and this does not apply. For instance, the examples below all provide encryption by which data is turned into clear text in locations that are not under control of the end user:
+More concisely, suppose that an end user is the end identity. An end-to-end encrypted system may run between potential end points at different network layers within the end identity's possession. These end points may then be considered acceptable sub-identities provided that no path between the end identity and sub-identity is accessible by any third party. There are quite a number of examples of common situations where tunnels are used and this does not apply. For instance, the examples below all provide encryption by which data is turned into clear text in locations that are not under control of the end user:
 
 *  The common VPN business model whereby a TLS or an IPsec tunnel terminates at the service provider's server and is subsequently forwarded to its destination elsewhere in unencrypted form;
 * Email transport whereby an unencrypted message traverses from sending mail user agent, between various mail transfer agents, and finally to a receiving mail user agent, all over TLS protected connections;
 * The encrypted connection of last mile connections such as those in 4G LTE;
 
-
-
-This definition of end points accounts for potentially several devices owned by a user, and various application-specific forwarding or delivery options among them. It also accounts for E2EE systems running at different network layers. Regardless of the sub-identities allowed, the definition is contingent on that all end sub-identities are under the end identity's control and no third party (or their sub-identities, e.g. system components under third-party control) can access the end sub-identities nor links between the sub-identity and end identity. 
+This definition of end points accounts for potentially several devices owned by a user, and various application-specific forwarding or delivery options among them. It also accounts for end-to-end encrypted systems running at different network layers. Regardless of the sub-identities allowed, the definition is contingent on that all end sub-identities are under the end identity's control and no third party (or their sub-identities, e.g. system components under third-party control) can access the end sub-identities nor links between the sub-identity and end identity. 
 This creates a tree hierarchy with the end user as the root at the top, and all potential end points being under their direct control, without third party access. 
-As an example, decryption at organizational network router before message forwarding (encrypted or unencrypted) to the end identity does not constitute E2EE. However, E2EE to a user's personal device and subsequent E2EE message forwarding to another one of the user's personal devices (without access available to any third party at any link or on device) maintains E2EE data possession for the user.
+As an example, decryption at organizational network router before message forwarding (encrypted or unencrypted) to the end identity does not constitute end-to-end encryption. However, end-to-end encryption to a user's personal device and subsequent end-to-end encrypted message forwarding to another one of the user's personal devices (without access available to any third party at any link or on device) maintains end-to-end encrypted data possession for the user.
 
 Encryption
 ----------
@@ -165,7 +163,7 @@ The way to achieve a truly end-to-end communications system is indeed to encrypt
 
 There are dozens of documents in the RFC Series that fundamentally and technically define encryption schemes. Perhaps interesting work to be done would be to survey all existing documents of this kind to define, in aggregate, their common features. The point is, the IETF has clear mandate and demonstrated expertise in defining the specifics of encrypted communications of the internet.
 
-While encryption is fundamental to the end-to-end principle, it does not stand alone. As in the history of all security, authentication and data integrity properties are also linked, and contributed to the end-to-end nature of E2EE. Permission of data manipulation or pseudo-identities for third parties to allow access under the user's identity are against the intention of E2EE. Thus, end point authenticity must be established as (sub-)identities of the end user, and end-to-end integrity must also be maintained by the system. There is considerable system design flexibility available in entity authentication mechanisms and data authentication that still meet this requirement.
+While encryption is fundamental to the end-to-end principle, it does not stand alone. As in the history of all security, authentication and data integrity properties are also linked, and contributed to the end-to-end nature of end-to-end encryption. Permission of data manipulation or pseudo-identities for third parties to allow access under the user's identity are against the intention of end-to-end encryption. Thus, end point authenticity must be established as (sub-)identities of the end user, and end-to-end integrity must also be maintained by the system. There is considerable system design flexibility available in entity authentication mechanisms and data authentication that still meet this requirement.
 
 Succinct definition of end-to-end security
 ------------------------------------------
@@ -179,14 +177,14 @@ We can say that a system is end-to-end secure if the adversary has negligible pr
 End-to-end encrypted systems design
 ===================================
 
-When looking at E2EE systems from a design perspective, the first consideration is the list of fundamental features that distinguish an E2EE system from one that does not employ E2EE. Secondly one must consider the direction of travel for improving the features of E2EE systems. In other words, what challenges are the designers, developers and implementers of E2EE systems facing?
+When looking at end-to-end encrypted systems from a design perspective, the first consideration is the list of fundamental features that distinguish an end-to-end encrypted system from one that does not employ end-to-end encryption. Secondly one must consider the development goals for improving the features of end-to-end encrypted systems, in other words, the challenges defined by the designers, developers and implementers of end-to-end encrypted systems.
 
 The features and challenges listed below are framed comprehensively rather than from the perspective of their design, development, implementation or use.
 
 Features
 --------
 
-Defining a technology can also be done by inspecting what it does, or is meant to do, in the form of features. The features of end-to-end encryption from an implementation perspective can be inspected across several important categories: 1) the necessary features of E2EE of authenticity, confidentiality, and integrity, whereas features of 2) availability, deniability, forward secrecy, and post-compromise security are enhancements to E2EE systems.
+Defining a technology can also be done by inspecting what it does, or is meant to do, in the form of features. The features of end-to-end encryption from an implementation perspective can be inspected across several important categories: 1) the necessary features of end-to-end encrypted of authenticity, confidentiality, and integrity, whereas features of 2) availability, deniability, forward secrecy, and post-compromise security are enhancements to end-to-end encrypted systems.
 
 ### Necessary features
 
@@ -214,7 +212,7 @@ Post-compromise security
 : Post-compromise security is a security property that seeks to guarantee future confidentiality and integrity even on the face of an end-point compromise (and consequently that communication sent post-compromise is protected with the same security properties that existed before the compromise). It is usually achieved by adding new ephemeral key exchanges to the derivation of encryption/decryption keys.
 
 Metadata obfuscation
-: Digital communication inevitably generates data other than the content of the communication itself, such as IP addresses, date and time. To enhance the confidentiality and security of E2EE systems, steps should be taken to minimize metadata leakage such as user obfuscating IP addresses, reducing non-routing metadata, and avoiding extraneous message headers.
+: Digital communication inevitably generates data other than the content of the communication itself, such as IP addresses, date and time. To enhance the confidentiality and security of end-to-end encrypted systems, steps should be taken to minimize metadata leakage such as user obfuscating IP addresses, reducing non-routing metadata, and avoiding extraneous message headers.
 
 Challenges
 ----------
@@ -233,7 +231,7 @@ Users need to communicate in groups, but this presents major problems of scale f
 
 The whole of a user's data should remain secure if only one message is compromised. However, for encrypted communication, you must currently choose between forward secrecy or the ability to communicate asynchronously. This presents a problem for application design that uses end-to-end encryption for asynchronous messaging over email, RCS, etc.
 
-Users of E2EE systems should be able to communicate with any medium of their choice, from text to large files, however there is often a resource problem because there are no open protocols to allow users to securely share the same resource in an end-to-end encrypted system. Client-side, e.g. end-point, activities like URL unfurling scanning.
+Users of end-to-end encrypted systems should be able to communicate with any medium of their choice, from text to large files, however there is often a resource problem because there are no open protocols to allow users to securely share the same resource in an end-to-end encrypted system. Client-side, e.g. end-point, activities like URL unfurling scanning.
 
 Usability considerations are sometimes in conflict with security considerations, such as message read status, typing indicators, URL/link previews.
 
@@ -242,12 +240,12 @@ Deployment is notoriously challenging for any software application where mainten
 End-user expectations
 =====================
 
-While the formal definition and properties of an E2EE system relate to communication security, they do not draw from a comprehensive threat model or speak to what users expect from E2EE communication. It is in this context that some E2EE designs and architectures may ultimately run contrary to user expectations of E2EE systems {{GEC-EU}}. Although some system designs do not directly violate "the math" of encryption algorithms, they do so by implicating and weakening other important aspects of an E2EE _system_.
+While the formal definition and properties of an end-to-end encrypted system relate to communication security, they do not draw from a comprehensive threat model or speak to what users expect from end-to-end encrypted communication. It is in this context that some designs and architectures of end-to-end encryption may ultimately run contrary to user expectations of end-to-end encrypted systems {{GEC-EU}}. Although some system designs do not directly violate "the math" of encryption algorithms, they do so by implicating and weakening other important aspects of an end-to-end encrypted _system_.
 
 A conversation is confidential
 ------------------------------
 
-Users talking to one another in an E2EE system should be the only ones that know what they are talking about {{RFC7624}}. People have the right to data privacy as defined in international human rights law and within the right to free expression and to hold opinions is inferred the right to whisper, whether or not they are using digital communications or walking through a field.
+Users talking to one another in an end-to-end encrypted system should be the only ones that know what they are talking about {{RFC7624}}. People have the right to data privacy as defined in international human rights law and within the right to free expression and to hold opinions is inferred the right to whisper, whether or not they are using digital communications or walking through a field.
 
 Providers are trustworthy
 -------------------------
@@ -264,30 +262,30 @@ Therefore, a trustworthy end-to-end encrypted communication system is the set of
 Access by a third-party is impossible
 -------------------------------------
 
-No matter the specifics, any methods used to access to the content of the messages by a third party would violate a user's expectations of E2EE messaging. "[T]hese access methods scan message contents on the user’s [device]", which are then "scanned for matches against a database of prohibited content before, and sometimes after, the message is sent to the recipient" {{GEC-EU}}. Third party access also covers cases without scanning -- namely, it should not be possible for any third-party end point to access the data regardless of reason.
+No matter the specifics, any methods used to access to the content of the messages by a third party would violate a user's expectations of end-to-end encrypted messaging. "[T]hese access methods scan message contents on the user’s [device]", which are then "scanned for matches against a database of prohibited content before, and sometimes after, the message is sent to the recipient" {{GEC-EU}}. Third party access also covers cases without scanning -- namely, it should not be possible for any third-party end point to access the data regardless of reason.
 
 If a method makes private communication, intended to be sent over an encrypted channel between end points, available to parties other than the sender and intended recipient(s), without formally interfering with channel confidentiality, that method violates the understood expectation of that security property.
 
 Pattern inference is minimised
 ------------------------------
 
-Analyses such as traffic fingerprinting or other (encrypted or unencrypted) data analysis techniques should be considered outside the scope of an E2EE system's goals of providing secure communications to end users.
+Analyses such as traffic fingerprinting or other (encrypted or unencrypted) data analysis techniques should be considered outside the scope of an end-to-end encrypted system's goals of providing secure communications to end users.
 
-Such methods of analyses, outside of or as part of E2EE system design, allow third parties to draw inferences from communication that was intended to be confidential. "By allowing private user data to be scanned via direct access by servers and their providers," the use of these methods should be considered an affront to "the privacy expectations of users of end-to-end encrypted communication systems" {{GEC-EU}}.
+Such methods of analyses, outside of or as part of end-to-end encrypted system design, allow third parties to draw inferences from communication that was intended to be confidential. "By allowing private user data to be scanned via direct access by servers and their providers," the use of these methods should be considered an affront to "the privacy expectations of users of end-to-end encrypted communication systems" {{GEC-EU}}.
 
-Not only should an E2EE system value user data privacy by not enabling pattern inference, it should actively be attempting to solve issues of metadata and traceability (enhanced metadata) through further innovation that stays ahead of advances in these techniques.
+Not only should an end-to-end encrypted system value user data privacy by not enabling pattern inference, it should actively be attempting to solve issues of metadata and traceability (enhanced metadata) through further innovation that stays ahead of advances in these techniques.
 
-The E2EE system is not compromised
+The end-to-end encrypted system is not compromised
 ----------------------------------
 
-RFC 3552 talks about the Internet Threat model such as the assumption that the user can expect any communications systems, but perhaps especially E2EE systems, to not be intentionally compromised {{RFC3552}}. Intentional compromises of E2EE systems are often referred to as "backdoors" but are often presented as additional design features under terms like "key escrow." Users of E2EE systems would not expect a front, back or side door entrance into their confidential conversations and would expect a provider to actively resist -- technically and legally -- compromise through these means.
+RFC 3552 talks about the Internet Threat model such as the assumption that the user can expect any communications systems, but perhaps especially end-to-end encrypted systems, to not be intentionally compromised {{RFC3552}}. Intentional compromises of end-to-end encrypted systems are often referred to as "backdoors" but are often presented as additional design features under terms like "key escrow." Users of end-to-end encrypted systems would not expect a front, back or side door entrance into their confidential conversations and would expect a provider to actively resist -- technically and legally -- compromise through these means.
 
 Conclusions
 ===========
 
-From messaging to video conferencing, there are many competing features in an E2EE system that is secure and usable. The most well designed system cannot meet the expectations of every user, nor does an ideal system exist from any dimension. E2EE is a technology that is constantly improving to achieve the ideal as defined in this document.
+From messaging to video conferencing, there are many competing features in an end-to-end encrypted system that is secure and usable. The most well designed system cannot meet the expectations of every user, nor does an ideal system exist from any dimension. End-to-end encryption is a technology that is constantly improving to achieve the ideal as defined in this document.
 
-Features and functionalities of E2EE systems should be developed and improved in service of end user expectations for privacy preserving communications.
+Features and functionalities of end-to-end encrypted systems should be developed and improved in service of end user expectations for privacy preserving communications.
 
 Acknowledgements
 ================
@@ -298,7 +296,9 @@ The folks at Riseup and the LEAP Encryption Access Project have articulated bril
 
 Ryan Polk at the Internet Society has energy to spare when it comes to organising meaningful contributions, like this one, for the technical advisors of the Global Encryption Coalition.
 
-Adrian Farrel,   are acknowleded for their review, comments, or questions that lead to improvement of this document.
+Adrian Farrel, Paul Wouters, __ are acknowleded for their review, comments, or questions that lead to improvement of this document.
+
+Chelsea Komlo and Britta Hale have contributed their deep expertise and consice and rigourous writing to this draft.
 
 Security Considerations
 =======================
