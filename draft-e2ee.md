@@ -122,7 +122,7 @@ These dimensions taken as a whole comprise a generally comprehensible picture of
 Formal definition of end-to-end encryption
 ==========================================
 
-An end-to-end encrypted communications system, irrespective of the content or the specific methods employed, relies on two important and rigorous technical concepts: The end-to-end principle and what defines an end, according to the IETF because of its importance to internet protocols; and encryption, an application of cryptography and the primary means employed by the IETF to secure internet protocols. In the tradition of cryptography it is also possible to achieve a concise definition of end-to-end encrypted security.
+An end-to-end encrypted communications system, irrespective of the content or the specific methods employed, relies on two important and rigorous technical concepts: The end-to-end principle and what defines an end, according to the IETF because of its importance to internet protocols; and encryption, an application of cryptography and the primary means employed by the IETF to secure internet protocols. In the field of cryptography it is also possible to achieve a concise definition of end-to-end encrypted security.
 
 End point
 ---------
