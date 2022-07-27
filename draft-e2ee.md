@@ -1,7 +1,7 @@
 ---
 title: Definition of End-to-end Encryption
 abbrev: e2ee
-docname: draft-knodel-e2ee-definition-03
+docname: draft-knodel-e2ee-definition-05
 category: info
 
 ipr: trust200902
