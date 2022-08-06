@@ -31,7 +31,7 @@ author:
 -
        ins: F. Baker
        name: Fred Baker
-       organization: 
+       organization:
        email: fredbaker.IETF@gmail.com
 
 -
@@ -160,9 +160,9 @@ Encryption
 
 From draft-dkg-hrpc-glossary-00, encryption is fundamental to the end-to-end principle. "End-to-End: The principal of extending characteristics of a protocol or system as far as possible within the system. For example, end-to-end instant message encryption would conceal communication content from one user's instant messaging application through any intermediate devices and servers all the way to the recipient's instant messaging application. If the message was decrypted at any intermediate point--for example at a service provider--then the property of end-to-end encryption would not be present."{{dkg}} Note that this only talks about the encrypted contents of the communication and not the metadata (often in plaintext) generated from it.
 
-The way to achieve a truly end-to-end encrypted communication system (with security and privacy properties) is indeed to encrypt, authenticate and provide integrity of the content of the data exchanged between the endpoints, e.g. sender(s) and receiver(s). The more common end-to-end technique used nowadays to achieve this makes use of the double-ratchet algorithm with an authenticated encryption scheme and of a Authenticated Key Exchange (AKE). The usage of this algorithms (or variants of them) is present in many modern messenger applications such as those considered in the IETF Messaging Layer Security working group, whose charter is to create a document that satisfies the need for several Internet applications for group key establishment and message protection protocols {{mls}}. OpenPGP, mostly used for email, uses a different technique to achieve security and privacy. It is also chartered in the IETF to create a specification that covers object encryption, object signing, and identity certification {{openpgp}}. Both protocols rely on the use of asymmetric and symmetric encryption, and exchange long-term identity public keys amongst end points.
+The way to achieve a truly end-to-end encrypted communication system (with security and privacy properties) is indeed to encrypt, authenticate and provide integrity of the content of the data exchanged between the endpoints, e.g. sender(s) and receiver(s). The more common end-to-end technique used nowadays to achieve this makes use of the double-ratchet algorithm with an authenticated encryption scheme and of a Authenticated Key Exchange (AKE). The usage of this algorithms (or variants of them) is present in many modern messenger applications such as those considered in the IETF Messaging Layer Security working group, whose charter is to create a document that satisfies the need for several internet applications for group key establishment and message protection protocols {{mls}}. OpenPGP, mostly used for email, uses a different technique to achieve security and privacy. It is also chartered in the IETF to create a specification that covers object encryption, object signing, and identity certification {{openpgp}}. Both protocols rely on the use of asymmetric and symmetric encryption, and exchange long-term identity public keys amongst end points.
 
-There are dozens of documents in the RFC Series that fundamentally and technically define security and privacy providing schemes. Perhaps interesting work to be done would be to survey all existing documents of this kind to define, in aggregate, their common features. The point is, the IETF has clear mandate and demonstrated expertise in defining the specifics of secure and private communications of the Internet.
+There are dozens of documents in the RFC Series that fundamentally and technically define security and privacy providing schemes. Perhaps interesting work to be done would be to survey all existing documents of this kind to define, in aggregate, their common features. The point is, the IETF has clear mandate and demonstrated expertise in defining the specifics of secure and private communications of the internet.
 
 While encryption is fundamental to the end-to-end principle, it does not stand alone. As in the history of all security, authentication and data integrity properties are also linked, and contributed to the end-to-end nature of end-to-end encryption. Permission of data manipulation or creation of pseudo-identities for third parties to allow access under the user's identity are against the intention of end-to-end encryption. Thus, end point authenticity must be established as (sub-)identities of the end user, and end-to-end integrity must also be maintained by the system. There is considerable system design flexibility available in entity authentication mechanisms and data authentication that still meet this requirement.
 
@@ -221,7 +221,7 @@ Metadata obfuscation
 Challenges
 ----------
 
-Earlier in this document end-to-end encryption was defined using formal definitions assumed by Internet protocol implementations. Also because the IETF is the place for "producing high quality, relevant technical documents that influence the way people design, use, and manage the Internet" {{RFC3935}} the reader can be confident that current deployments of end-to-end encrypted technologies in the IETF indicate the cutting edge of their developments, which is yet another way to define what is, or ideally should be, a particular kind of technology.
+Earlier in this document end-to-end encryption was defined using formal definitions assumed by internet protocol implementations. Also because the IETF is the place for "producing high quality, relevant technical documents that influence the way people design, use, and manage the Internet" {{RFC3935}} the reader can be confident that current deployments of end-to-end encrypted technologies in the IETF indicate the cutting edge of their developments, which is yet another way to define what is, or ideally should be, a particular kind of technology.
 
 Below is best effort list of the challenges currently faced by protocol designers of end-to-end encrypted systems. Problems that fall outside of this list are likely 1) unnecessary feature requests that negligibly, or do nothing to, achieve the aims of end-to-end encrypted systems, or are 2) in some way antithetical to the goals of end-to-end encrypted systems.
 
@@ -314,7 +314,7 @@ Security Considerations
 
 This document does not specify new protocols and therefore does not bring up technical security considerations.
 
-Because some policy decicions may affect the security of the Internet, a clear and shared definition of end to end encrypted communication is important in policy related discussions.  This document aims to provide that clarity.
+Because some policy decicions may affect the security of the internet, a clear and shared definition of end to end encrypted communication is important in policy related discussions.  This document aims to provide that clarity.
 
 
 IANA Considerations
