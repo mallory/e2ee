@@ -107,7 +107,7 @@ informative:
 
 --- abstract
 
-End-to-end encryption is an application of cryptography mechanisms and properties in communication systems between endpoints. End-to-end encrypted systems are unique in providing both security and privacy properties through confidentiality, integrity and authenticity features for users. Improvements to end-to-end encryption strive to maximise the user's security and privacy while balancing usability and availability. Users of end-to-end encrypted communications expect trustworthy providers of secure implementations to respect and protect their right to whisper.
+End-to-end encryption is an application of cryptography mechanisms and properties in communication systems between endpoints. End-to-end encrypted systems are exceptional in providing both security and privacy properties through confidentiality, integrity and authenticity features for users. Improvements to end-to-end encryption strive to maximise the user's security and privacy while balancing usability and availability. Users of end-to-end encrypted communications expect trustworthy providers of secure implementations to respect and protect their right to whisper.
 
 --- middle
   
