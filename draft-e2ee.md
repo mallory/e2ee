@@ -29,6 +29,12 @@ author:
        email: mknodel@cdt.org
 
 -
+       ins: S. Celi
+       name: Sofía Celi
+       organization: Brave
+       email: cherenkov@riseup.net
+
+-
        ins: F. Baker
        name: Fred Baker
        organization:
@@ -39,12 +45,6 @@ author:
        name: Olaf Kolkman
        organization: ISOC
        email: kolkman@isoc.org
-
--
-       ins: S. Celi
-       name: Sofía Celi
-       organization: Brave
-       email: cherenkov@riseup.net
 
 -
        ins: G. Grover
@@ -107,23 +107,23 @@ informative:
 
 --- abstract
 
-End-to-end encryption is an application of cryptography mechanisms and properties in communication systems between endpoints. End-to-end encrypted systems are unique in providing both security and privacy properties through confidentiality, integrity and authenticity features for users. Improvements to end-to-end encryption strive to maximise the system's security and privacy while balancing usability and availability. Users of end-to-end encrypted communications expect trustworthy providers of secure implementations to respect and protect their right to whisper.
+End-to-end encryption is an application of cryptography mechanisms and properties in communication systems between endpoints. End-to-end encrypted systems are unique in providing both security and privacy properties through confidentiality, integrity and authenticity features for users. Improvements to end-to-end encryption strive to maximise the user's security and privacy while balancing usability and availability. Users of end-to-end encrypted communications expect trustworthy providers of secure implementations to respect and protect their right to whisper.
 
 --- middle
-
+  
 Introduction
 ============
 
 This document defines end-to-end encryption using three different dimensions that together comprise a full definition of end-to-end encryption, which can be applied in a variety of contexts.
 
-The first is a formal definition that draws on the basic understanding of end points and cryptography. The second looks at end-to-end encrypted systems from a design perspective, both its fundamental features and proposed improvements on those features. Lastly this document considers the expectations of the user of end-to-end encrypted systems.
+The first is a formal definition that draws on the basic understanding of end points and cryptography, where it is comprised of necessary constituent parts but considered as a system. The second looks at end-to-end encrypted implementations from a design perspective, both its fundamental features and proposed improvements on those features. Lastly this document considers the expectations of the user of end-to-end encryption.
 
 These dimensions taken as a whole comprise a generally comprehensible picture of consensus at the IETF as to what is end-to-end encryption, irrespective of application, from messaging to video conferencing, and between any number of end points. It it worth noting that while the word "encryption" often refers to confidentiality (security) properties, we argue that end-to-end encryption should provide both security and privacy properties. We aim to provide a definition of end-to-end encryption that states which specific security and privacy properties it should provide.
 
 Formal definition of end-to-end encryption
 ==========================================
 
-An end-to-end encrypted communications system, irrespective of the content or the specific methods employed, relies on two important and rigorous technical concepts: The end-to-end principle and what defines an end, according to the IETF because of its importance to internet protocols; and encryption, an application of cryptographic mechanisms and the primary means employed by the IETF to secure and maintain privacy of internet protocols. In the field of cryptography it is also possible to achieve a concise definition of end-to-end encrypted security.
+End-to-end encryption, irrespective of the content or the specific methods employed, relies on two important and rigorous technical concepts: The end-to-end principle and what defines an end, according to the IETF because of its importance to internet protocols; and encryption, an application of cryptographic mechanisms and the primary means employed by the IETF to secure and maintain privacy of internet protocols. Where end-to-end encryption is comprised of thes necessary constituent parts, a systems approach also defines their interplay. In the field of cryptography it is also possible to achieve a concise definition of end-to-end encrypted security.
 
 End point
 ---------
@@ -175,17 +175,17 @@ The malicious adversary successfully subverts an end-to-end encrypted system if 
 
 We can say that a system is end-to-end secure if the adversary has negligible probability of success in either of these two scenarios {{komlo}}.
 
-End-to-end encrypted systems design
-===================================
+End-to-end encryption implementations
+=====================================
 
-When looking at end-to-end encrypted systems from a design perspective, the first consideration is the list of fundamental features that distinguish an end-to-end encrypted system from one that does not employ end-to-end encryption. Secondly, one must consider the development goals for improving the features of end-to-end encrypted systems, in other words, the challenges defined by the designers, developers and implementers of end-to-end encrypted systems.
+When looking at implementations of end-to-end encryption from a design perspective, the first consideration is the list of fundamental features that distinguish an end-to-end encrypted system from one that does not employ end-to-end encryption. Secondly, one must consider the development goals for improving the features of end-to-end encryption, in other words, the challenges defined by the designers, developers and implementers of end-to-end encryption.
 
 The features and challenges listed below are framed comprehensively rather than from the perspective of their design, development, implementation or use.
 
 Features
 --------
 
-Defining a system can also be done by inspecting what it does, or is meant to do, in the form of features. The features of end-to-end encryption from an implementation perspective can be inspected across several important categories: 1) the necessary features of end-to-end encrypted for the properties of authenticity, confidentiality, and integrity, whereas features of 2) availability, deniability, forward secrecy, and post-compromise security are enhancements to end-to-end encrypted systems.
+Defining a system can also be done by inspecting what it does, or is meant to do, in the form of features. The features of end-to-end encryption from an implementation perspective can be inspected across several important categories: 1) the necessary features of end-to-end encrypted for the properties of authenticity, confidentiality, and integrity, whereas features of 2) availability, deniability, forward secrecy, and post-compromise security are enhancements to end-to-end encryption.
 
 ### Necessary features
 
@@ -216,7 +216,7 @@ Post-compromise security
 : Post-compromise security is a security property that seeks to guarantee future confidentiality and integrity even on the face of a passive end-point compromise (and consequently that communication sent post-compromise is protected with the same security properties that existed before the compromise). It is usually achieved by adding new ephemeral key exchanges (new randomness) to the derivation of encryption/decryption keys every 'x' amount of time or after 'n' messages sent. Note that post-compromise security is not met in the face of active attackers.
 
 Metadata obfuscation
-: Digital communication inevitably generates data other than the content of the communication itself, such as IP addresses, date and time. To enhance the privacy and security of end-to-end encrypted systems, steps should be taken to minimize metadata leakage such as user obfuscating IP addresses, reducing non-routing metadata, and avoiding extraneous message headers.
+: Digital communication inevitably generates data other than the content of the communication itself, such as IP addresses, date and time. To enhance the privacy and security of end-to-end encryption, steps should be taken to minimize metadata leakage such as user obfuscating IP addresses, reducing non-routing metadata, and avoiding extraneous message headers.
 
 Challenges
 ----------
@@ -270,8 +270,8 @@ No matter the specifics, any methods used to access to the content of the messag
 
 If a method makes secure and private communication, intended to be sent over an encrypted channel between end points, available to parties other than the sender and intended recipient(s), without formally interfering with channel confidentiality, that method violates the understood expectation of that security property.
 
-The software of the end-to-end encryption system can be trusted
----------------------------------------------------------------
+The software of the end-to-end encrypted system can be trusted
+--------------------------------------------------------------
 
 A way by which users can check that a system does not have a "backdoor" or is performing in accordance to cryptographic protocols' specifications is by making them opensource. Opensource allows users to openly analise the system and be assured of it. However, while many users might be able to do so, some users lack the technological knowledge needed to analyse source code. It is vital that systems provide public security analysis of their source code that can be vetted by any type of user.
 
@@ -284,17 +284,17 @@ Such methods of analyses, outside of or as part of end-to-end encrypted system d
 
 Not only should an end-to-end encrypted system value user data privacy by not explicitly enabling pattern inference, it should actively be attempting to solve issues of metadata and traceability (enhanced metadata) through further innovation that stays ahead of advances in these techniques.
 
-The end-to-end encrypted system is not compromised
+The end-to-end encryption is not compromised
 ----------------------------------
 
-RFC 3552 talks about the Internet Threat model such as the assumption that the user can expect any communications systems, but perhaps especially end-to-end encrypted systems, to not be intentionally compromised {{RFC3552}}. Intentional compromises of end-to-end encrypted systems are often referred to as "backdoors" but are often presented as additional design features under terms like "key escrow". Users of end-to-end encrypted systems would not expect a front, back or side door entrance into their confidential conversations and would expect a provider to actively resist -- technically and legally -- compromise through these means.
+RFC 3552 talks about the Internet Threat model such as the assumption that the user can expect any communications systems, but perhaps especially end-to-end encrypted systems, to not be intentionally compromised {{RFC3552}}. Intentional compromises of end-to-end encryption are often referred to as "backdoors" but are often presented as additional design features under terms like "key escrow". Users of end-to-end encryption would not expect a front, back or side door entrance into their confidential conversations and would expect a provider to actively resist -- technically and legally -- compromise through these means.
 
 Conclusions
 ===========
 
-From messaging to video conferencing, there are many competing features in an end-to-end encrypted system that is secure, private and usable. The most well designed system cannot meet the expectations of every user, nor does an ideal system exist from any dimension. End-to-end encryption is a technology that is constantly improving to achieve the ideal as defined in this document.
+From messaging to video conferencing, there are many competing features in an end-to-end encrypted implementation that is secure, private and usable. The most well designed system cannot meet the expectations of every user, nor does an ideal system exist from any dimension. End-to-end encryption is a technology that is constantly improving to achieve the ideal as defined in this document.
 
-Features and functionalities of end-to-end encrypted systems should be developed and improved in service of end user expectations for privacy preserving communications.
+Features and functionalities of end-to-end encryption should be developed and improved in service of end user expectations for privacy preserving communications.
 
 Acknowledgements
 ================
@@ -305,7 +305,7 @@ The folks at Riseup and the LEAP Encryption Access Project have articulated bril
 
 Ryan Polk at the Internet Society has energy to spare when it comes to organising meaningful contributions, like this one, for the technical advisors of the Global Encryption Coalition.
 
-Adrian Farrel, Paul Wouters, __ are acknowleded for their review, comments, or questions that lead to improvement of this document.
+Adrian Farrel, Eric Rescorla and Paul Wouters are acknowleded for their review, comments, or questions that lead to improvement of this document.
 
 Chelsea Komlo and Britta Hale have contributed their deep expertise and consice and rigourous writing to this draft.
 
