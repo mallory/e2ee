@@ -239,7 +239,7 @@ Below is best effort list of the challenges currently faced by protocol designer
 
  * Users of end-to-end encrypted systems should be able to communicate with any medium of their choice, from text to large files. However, there is often a resource problem because there are no open protocols to allow users to securely share the same resource in an end-to-end encrypted system.
 
- * Usability considerations are sometimes in conflict with security and privacy considerations, such as message read status, typing indicators, URL/link previews.
+ * Usability, accessibility and internationalisation considerations are sometimes in conflict with security and privacy considerations, such as message read status, typing indicators, URL/link previews, third-party input/output applications.
 
  * Deployment is notoriously challenging for any software application where maintenance and updates can be particularly disastrous for obsolete cryptographic libraries.
 
