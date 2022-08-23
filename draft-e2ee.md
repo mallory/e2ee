@@ -216,6 +216,9 @@ Post-compromise security
 Metadata obfuscation
 : Digital communication inevitably generates data other than the content of the communication itself, such as IP addresses, date and time. To enhance the privacy and security of end-to-end encryption, steps should be taken to minimize metadata leakage such as user obfuscating IP addresses, reducing non-routing metadata, and avoiding extraneous message headers.
 
+Disappearing messages
+: For truly confidential conversations, deleting one-by-one sensive messages typically depends on a level of client-side security that is unsustainable. Features like "delete for me" or "delete for everyone" helps with individual messages. What is better is the automatic deletion of whole conversations after an agreed upon timeframe by all parties, eg disappearing messages. In any case, whenever a user has deleted content for all, the provider must ensure complete removal of the content.
+
 Challenges
 ----------
 
