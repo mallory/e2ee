@@ -1,5 +1,3 @@
-# {REPO_ROOT}/.github/workflows/update.yml
-
 name: 'Update draft actions'
 on:
   workflow_dispatch:
