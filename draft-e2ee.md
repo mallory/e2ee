@@ -118,7 +118,7 @@ This document uses three different dimensions that define end-to-end encryption,
 
 The first is a formal definition that draws on the basic understanding of end points and cryptography, where it is comprised of necessary constituent parts but considered as a system. The second looks at end-to-end encrypted implementations from a design perspective, both its fundamental features and proposed improvements on those features. Lastly this document considers the expectations of the user of end-to-end encryption.
 
-These dimensions taken as a whole comprise a generally comprehensible picture of consensus at the IETF as to what is end-to-end encryption, irrespective of application, from messaging to video conferencing, and between any number of end points. It it worth noting that while the word "encryption" often refers to confidentiality (security) properties, this document shows that end-to-end encryption MUST provide both security and privacy properties. And it provides a definition which specific security and privacy properties end-to-end encryption should provide.
+These dimensions taken as a whole comprise a generally comprehensible picture of consensus at the IETF as to what is end-to-end encryption, irrespective of application, from messaging to video conferencing, and between any number of end points. It it worth noting that while the word "encryption" often refers to confidentiality (security) properties, this document shows that end-to-end encryption MUST provide both security and privacy properties. And it provides a definition of which specific security and privacy properties end-to-end encryption should provide.
 
 Formal definition of end-to-end encryption
 ==========================================
@@ -158,7 +158,7 @@ As an example, decryption at organizational network router before message forwar
 Encryption
 ----------
 
-From draft-dkg-hrpc-glossary-00, encryption is fundamental to the end-to-end principle. "End-to-End: The principal of extending characteristics of a protocol or system as far as possible within the system. For example, end-to-end instant message encryption would conceal communication content from one user's instant messaging application through any intermediate devices and servers all the way to the recipient's instant messaging application. If the message was decrypted at any intermediate point--for example at a service provider--then the property of end-to-end encryption would not be present."{{dkg}} Note that this only talks about the encrypted contents of the communication and not the metadata (often in plaintext) generated from it.
+Encryption is fundamental to the end-to-end principle. "End-to-End: The principal of extending characteristics of a protocol or system as far as possible within the system. For example, end-to-end instant message encryption would conceal communication content from one user's instant messaging application through any intermediate devices and servers all the way to the recipient's instant messaging application. If the message was decrypted at any intermediate point--for example at a service provider--then the property of end-to-end encryption would not be present."{{dkg}} Note that this only talks about the encrypted contents of the communication and not the metadata (often in plaintext) generated from it.
 
 The way to achieve a truly end-to-end encrypted communication system (with required security and privacy properties) is indeed to encrypt, authenticate and provide integrity of the content of the data exchanged between the endpoints, e.g. sender(s) and receiver(s). The more common end-to-end technique achieve this through the use of the double-ratchet algorithm with an authenticated encryption scheme and of an Authenticated Key Exchange (AKE). The usage of these algorithms (or variants of these) is present in many modern messenger applications such as those considered in the IETF Messaging Layer Security working group, whose charter is to create a document that satisfies the need for several internet applications for group key establishment and message protection protocols {{mls}}. OpenPGP, mostly used for email, uses a different technique to achieve security and privacy. It is also chartered in the IETF to create a specification that covers object encryption, object signing, and identity certification {{openpgp}}. Both protocols rely on the use of asymmetric and symmetric encryption, and exchange long-term identity public keys amongst end points. The IETF has clear mandate and demonstrated expertise in defining the specifics of secure and private communications of the internet.
 
@@ -169,7 +169,7 @@ Concise definition of end-to-end security
 
 A concise definition for end-to-end security can describe the security of the system by the probability of an adversary's success in breaking the system. Example snippet:
 
-The malicious adversary successfully subverts an end-to-end encrypted system if it can succeed in either of the following: 1) the adversary can produce the participant's local state (meaning the adversary has learned the decrypted contents of participant's messages), or 2) the states of conversation participants do not match (meaning that the adversary has influenced their communication in some way). To prevent the adversary from trivially winning, the adversary is not allowed to compromise the participants' local state.
+The adversary successfully subverts an end-to-end encrypted system if it can succeed in either of the following: 1) the adversary can produce the participant's local state (meaning the adversary has learned the decrypted contents of participant's messages), or 2) the states of conversation participants do not match (meaning that the adversary has influenced their communication in some way). To prevent the adversary from trivially winning, the adversary is not allowed to compromise the participants' local state.
 
 We can say that a system is end-to-end secure if the adversary has negligible probability of success in either of these two scenarios {{komlo}}.
 
@@ -191,7 +191,7 @@ Authenticity
 : A system provides message authenticity if the recipient and sender attest to each other's identities in relation to the contents of their communications.
 
 Confidentiality
-: A system provides message confidentiality if only the sender and intended recipient(s) can read the message plaintext, i.e. messages are encrypted by the sender such that only the recipient(s) shared and agreed by all sender(s) and/or recipients can decrypt them.
+: A system provides message confidentiality if only the sender and intended recipient(s) can read the message plaintext, i.e. message sent between participants can only be read by the agreed upon participants in the group and all participants share the identical group member list.
 
 Integrity
 : A system provides message integrity when it guarantees that messages that have been modified in transit. If they have been modified, it must be detected in a reliable way such that a recipient is assured that a message cannot be undetectably modified in any way.
@@ -226,7 +226,7 @@ Earlier in this document end-to-end encryption was defined using formal definiti
 
 Below is best effort list of the challenges currently faced by protocol designers of end-to-end encrypted systems. Problems that fall outside of this list are likely 1) unnecessary feature requests that negligibly, or do nothing to, achieve the aims of end-to-end encrypted systems, or are 2) in some way antithetical to the goals of end-to-end encrypted systems.
 
-* Making messaging applications interoperable is an important goal for a healthy and user centric internet ecosystem, however it requires careful design of protocols and systems, such as content negotiation; provisions of global services, such as discovery; and a great deal of cooperation amongst implementers.
+* Making messaging applications interoperable is an important goal for a healthy and user centric internet ecosystem, however it requires careful design of protocols and systems, such as content type negotiation; provisions of global services, such as discovery; and a great deal of cooperation amongst implementers.
 
 * Public key verification is very difficult for users to manage. Authentication of the two ends is required for secure and private conversations. Therefore, solving the problem of verification of public keys is a major concern for any end-to-end encrypted system design. Some applications bind together the account identity and the key, and leave users to establish a trust relationship between them, assisted by public key fingerprint information.
 
@@ -242,7 +242,7 @@ Below is best effort list of the challenges currently faced by protocol designer
 
  * Usability, accessibility and internationalisation considerations are sometimes in conflict with security and privacy considerations, such as message read status, typing indicators, URL/link previews, third-party input/output applications.
 
- * End user security tools like anti-virus plugins, anti spam, fraud protections are in conflict with the security and privacy considerations of the end-to-end application. 
+ * End user security tools like anti-virus plugins, spam filters, fraud protections are in conflict with the security and privacy considerations of the end-to-end application. 
 
  * Deployment is notoriously challenging for any software application where maintenance and updates can be particularly disastrous for obsolete cryptographic libraries.
 
