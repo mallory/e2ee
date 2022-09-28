@@ -1,7 +1,7 @@
 ---
 title: Definition of End-to-end Encryption
 abbrev: e2ee
-docname: draft-knodel-e2ee-definition-06
+docname: draft-knodel-e2ee-definition-07
 category: info
 
 ipr: trust200902
@@ -107,7 +107,7 @@ informative:
 
 --- abstract
 
-End-to-end encryption is an application of cryptography mechanisms and properties in communication systems between endpoints. End-to-end encrypted systems are exceptional in providing both security and privacy properties through confidentiality, integrity and authenticity features for users. Improvements to end-to-end encryption strive to maximise the user's security and privacy while balancing usability and availability. Users of end-to-end encrypted communications expect trustworthy providers of secure implementations to respect and protect them.
+End-to-end encryption is an application of cryptography mechanisms and properties in communication systems between endpoints. End-to-end encrypted systems are exceptional in providing both security and privacy properties through confidentiality, integrity and authenticity features for users. Improvements to end-to-end encryption strive to maximize the user's security and privacy while balancing usability and availability. Users of end-to-end encrypted communications expect trustworthy providers of secure implementations to respect and protect them.
 
 --- middle
   
@@ -118,12 +118,12 @@ This document uses three different dimensions that define end-to-end encryption,
 
 The first is a formal definition that draws on the basic understanding of end points and cryptography, where it is comprised of necessary constituent parts but considered as a system. The second looks at end-to-end encrypted implementations from a design perspective, both its fundamental features and proposed improvements on those features. Lastly this document considers the expectations of the user of end-to-end encryption.
 
-These dimensions taken as a whole comprise a generally comprehensible picture of consensus at the IETF as to what is end-to-end encryption, irrespective of application, from messaging to video conferencing, and between any number of end points. It it worth noting that while the word "encryption" often refers to confidentiality (security) properties, we argue that end-to-end encryption should provide both security and privacy properties. We aim to provide a definition of end-to-end encryption that states which specific security and privacy properties it should provide.
+These dimensions taken as a whole comprise a generally comprehensible picture of consensus at the IETF as to what is end-to-end encryption, irrespective of application, from messaging to video conferencing, and between any number of end points. It it worth noting that while the word "encryption" often refers to confidentiality (security) properties, this document shows that end-to-end encryption must also provide both security and privacy properties. And it provides a definition which specific security and privacy properties end-to-end encryption should provide.
 
 Formal definition of end-to-end encryption
 ==========================================
 
-End-to-end encryption, irrespective of the content or the specific methods employed, relies on two important and rigorous technical concepts: the end-to-end principle according to the IETF; and encryption, an application of cryptographic mechanisms and the primary means employed by the IETF to secure and maintain privacy of internet protocols. Where end-to-end encryption is comprised of thes necessary constituent parts, a systems approach also defines their interplay. In the field of cryptography it is also possible to achieve a concise definition of end-to-end encrypted security.
+End-to-end encryption, irrespective of the content or the specific methods employed, relies on two important and rigorous technical concepts: the end-to-end principle as defined in the IETF; and encryption, an application of cryptographic mechanisms and the primary means employed by the IETF to secure internet protocols and maintain the privacy of content delivered via these internet protocols. Where end-to-end encryption is comprised of these necessary constituent parts, a systems approach also defines their interplay. In the field of cryptography it is also possible to achieve a concise definition of end-to-end encrypted security.
 
 End point
 ---------
@@ -160,14 +160,14 @@ Encryption
 
 From draft-dkg-hrpc-glossary-00, encryption is fundamental to the end-to-end principle. "End-to-End: The principal of extending characteristics of a protocol or system as far as possible within the system. For example, end-to-end instant message encryption would conceal communication content from one user's instant messaging application through any intermediate devices and servers all the way to the recipient's instant messaging application. If the message was decrypted at any intermediate point--for example at a service provider--then the property of end-to-end encryption would not be present."{{dkg}} Note that this only talks about the encrypted contents of the communication and not the metadata (often in plaintext) generated from it.
 
-The way to achieve a truly end-to-end encrypted communication system (with security and privacy properties) is indeed to encrypt, authenticate and provide integrity of the content of the data exchanged between the endpoints, e.g. sender(s) and receiver(s). The more common end-to-end technique used nowadays to achieve this makes use of the double-ratchet algorithm with an authenticated encryption scheme and of a Authenticated Key Exchange (AKE). The usage of this algorithms (or variants of them) is present in many modern messenger applications such as those considered in the IETF Messaging Layer Security working group, whose charter is to create a document that satisfies the need for several internet applications for group key establishment and message protection protocols {{mls}}. OpenPGP, mostly used for email, uses a different technique to achieve security and privacy. It is also chartered in the IETF to create a specification that covers object encryption, object signing, and identity certification {{openpgp}}. Both protocols rely on the use of asymmetric and symmetric encryption, and exchange long-term identity public keys amongst end points. The IETF has clear mandate and demonstrated expertise in defining the specifics of secure and private communications of the internet.
+The way to achieve a truly end-to-end encrypted communication system (with required security and privacy properties) is indeed to encrypt, authenticate and provide integrity of the content of the data exchanged between the endpoints, e.g. sender(s) and receiver(s). The more common end-to-end technique achieve this through the use of the double-ratchet algorithm with an authenticated encryption scheme and of an Authenticated Key Exchange (AKE). The usage of these algorithms (or variants of these) is present in many modern messenger applications such as those considered in the IETF Messaging Layer Security working group, whose charter is to create a document that satisfies the need for several internet applications for group key establishment and message protection protocols {{mls}}. OpenPGP, mostly used for email, uses a different technique to achieve security and privacy. It is also chartered in the IETF to create a specification that covers object encryption, object signing, and identity certification {{openpgp}}. Both protocols rely on the use of asymmetric and symmetric encryption, and exchange long-term identity public keys amongst end points. The IETF has clear mandate and demonstrated expertise in defining the specifics of secure and private communications of the internet.
 
 While encryption is fundamental to the end-to-end principle, it does not stand alone. As in the history of all security, authentication and data integrity properties are also linked, and contributed to the end-to-end nature of end-to-end encryption. Permission of data manipulation or creation of pseudo-identities for third parties to allow access under the user's identity are against the intention of end-to-end encryption. In other words, the application functions only for the end user and does not covertly perform functions for any other entity, even if that entity claims to have obtained the consent of the end user. Thus, end point authenticity must be established as (sub-)identities of the end user, and end-to-end integrity must also be maintained by the system. There is considerable system design flexibility available in entity authentication mechanisms and data authentication that still meet this requirement.
 
 Concise definition of end-to-end security
 ------------------------------------------
 
-A concise definition for end-to-end security can describe the security of the system by the probability of a malicious adversary's success in breaking the system. Example snippet:
+A concise definition for end-to-end security can describe the security of the system by the probability of an adversary's success in breaking the system. Example snippet:
 
 The malicious adversary successfully subverts an end-to-end encrypted system if it can succeed in either of the following: 1) the adversary can produce the participant's local state (meaning the adversary has learned the decrypted contents of participant's messages), or 2) the states of conversation participants do not match (meaning that the adversary has influenced their communication in some way). To prevent the adversary from trivially winning, the adversary is not allowed to compromise the participants' local state.
 
@@ -199,25 +199,25 @@ Integrity
 ### Optional/desirable features
 
 Availability
-: A system provides high availability if the user is able to access the contents of the message (decrypt them) when they so desire and potentially from more than one device, i.e. a message arrives to a recipient even if they have been offline for a long time. Note that applications that use this feature often state a threshold until this property is met: messages from a month ago can be read by a user that has been offline, but not messages from a year ago.
+: A system provides high availability if the user is able to access the contents of the message (decrypt them) when they so desire and potentially from more than one device, i.e. a message arrives to a recipient even if they have been offline for a long time. Note that applications that use this feature often implement a threshold for how long this property is met: messages from a month ago can be read by a user that has been offline, but not messages from a year ago.
 
 Loss Resilience
 : If a message is permanently lost by the network, sender(s) and/or recipient(s) should still be able to communicate.
 
 Deniability
-: Deniability ensures that anyone able to decrypt a record of the transcript, including message recipients, cannot cryptographically prove to others that a particular participant of a communication authored an specific message. As demonstrated by widely implemented protocols, this optional property must exist in conjunction with the necessary property of message authenticity, i.e. participants in a communication must be assured that they are communicating with the intended parties but this assurance cannot be transmitted to any other parties.
+: Deniability ensures that anyone able to decrypt a record of the transcript, including message recipients, cannot cryptographically prove to others that a particular participant of a communication authored a specific message. As demonstrated by widely implemented protocols, this optional property must exist in conjunction with the necessary property of message authenticity, i.e. participants in a communication must be assured that they are communicating with the intended parties but this assurance cannot be transmitted to any other parties.
 
 Forward secrecy
 : Forward secrecy is a security property that prevents attackers from decrypting encrypted data they have previously captured over a communication channel before the time of compromise, even if they have compromised one of the endpoints. Forward secrecy is usually achieved by deriving new encryption/decryption keys, and old keys no longer required to encrypt or decrypt any new messages are immediately destroyed.
 
 Post-compromise security
-: Post-compromise security is a security property that seeks to guarantee future confidentiality and integrity even on the face of a passive end-point compromise (and consequently that communication sent post-compromise is protected with the same security properties that existed before the compromise). It is usually achieved by adding new ephemeral key exchanges (new randomness) to the derivation of encryption/decryption keys every 'x' amount of time or after 'n' messages sent. Note that post-compromise security is not met in the face of active attackers.
+: Post-compromise security is a security property that seeks to guarantee future confidentiality and integrity even on the face of an end-point compromise (and consequently that communication sent post-compromise is protected with the same security properties that existed before the compromise). It is usually achieved by adding new ephemeral key exchanges (new randomness) to the derivation of encryption/decryption keys every 'x' amount of time or after 'n' messages sent. Note that post-compromise security is not met in the face of active attackers.
 
 Metadata obfuscation
-: Digital communication inevitably generates data other than the content of the communication itself, such as IP addresses, date and time. To enhance the privacy and security of end-to-end encryption, steps should be taken to minimize metadata leakage such as user obfuscating IP addresses, reducing non-routing metadata, and avoiding extraneous message headers.
+: Digital communication inevitably generates data other than the content of the communication itself, such as IP addresses, date and time. To enhance the privacy and security of end-to-end encryption, steps should be taken to minimize metadata leakage such as users hiding IP addresses, reducing non-routing metadata, and avoiding extraneous message headers.
 
 Disappearing messages
-: For truly confidential conversations, deleting one-by-one sensive messages typically depends on a level of client-side security that is unsustainable. Features like "delete for me" or "delete for everyone" helps with individual messages. What is better is the automatic deletion of whole conversations after an agreed upon timeframe by all parties, eg disappearing messages. In any case, whenever a user has deleted content for all, the provider must ensure complete removal of the content.
+: For truly confidential conversations, deleting one-by-one sensitive messages typically depends on a level of client-side security that is unsustainable. Features like "delete for me" or "delete for everyone" helps with individual messages. What is better is the automatic deletion of whole conversations after an agreed upon timeframe by all parties, eg disappearing messages. In any case, whenever a user has deleted content for all, the provider must ensure complete removal of the content and even then a certain level of trust among users of the system is needed.
 
 Challenges
 ----------
@@ -226,7 +226,7 @@ Earlier in this document end-to-end encryption was defined using formal definiti
 
 Below is best effort list of the challenges currently faced by protocol designers of end-to-end encrypted systems. Problems that fall outside of this list are likely 1) unnecessary feature requests that negligibly, or do nothing to, achieve the aims of end-to-end encrypted systems, or are 2) in some way antithetical to the goals of end-to-end encrypted systems.
 
-* Making messaging applications interoperabile is an important goal for a healthy and user centric internet ecosysystem, however it requires careful design of protocols and systems, such as content negotiation; provisions of global services, such as discovery; and a great deal of cooperation amongst implementers.
+* Making messaging applications interoperable is an important goal for a healthy and user centric internet ecosystem, however it requires careful design of protocols and systems, such as content negotiation; provisions of global services, such as discovery; and a great deal of cooperation amongst implementers.
 
 * Public key verification is very difficult for users to manage. Authentication of the two ends is required for secure and private conversations. Therefore, solving the problem of verification of public keys is a major concern for any end-to-end encrypted system design. Some applications bind together the account identity and the key, and leave users to establish a trust relationship between them, assisted by public key fingerprint information.
 
@@ -241,6 +241,8 @@ Below is best effort list of the challenges currently faced by protocol designer
  * Users of end-to-end encrypted systems should be able to communicate with any medium of their choice, from text to large files. However, there is often a resource problem because there are no open protocols to allow users to securely share the same resource in an end-to-end encrypted system.
 
  * Usability, accessibility and internationalisation considerations are sometimes in conflict with security and privacy considerations, such as message read status, typing indicators, URL/link previews, third-party input/output applications.
+
+ * End user security tools like anti-virus plugins, anti spam, fraud protections are in conflict with the security and privacy considerations of the end-to-end application. 
 
  * Deployment is notoriously challenging for any software application where maintenance and updates can be particularly disastrous for obsolete cryptographic libraries.
 
@@ -264,7 +266,7 @@ Trustworthy
 
 This definition is complete in its positive and negative aspects: what it is, e.g. "Worthy of confidence" and what it is not, e.g. in RFC 7258: "behavior that subverts the intent of communicating parties without the agreement of those parties" {{RFC7258}}.
 
-Therefore, a trustworthy end-to-end encrypted communication system is the provider of the set of functions needed by two or more parties to communicate among each other in a confidential, authenticated and integrity-preserving fashion without any third party having access to the content of that communication where the functions that offer the confidentiality, authenticity and integrity-preservation are trustworthy.
+Therefore, a trustworthy end-to-end encrypted communication system is the provider of the set of functions needed by two or more parties to communicate among each other in a confidential, authenticated and integrity-preserving fashion without any third party having access to the content of that communication where the functions that offer the confidentiality, authenticity and integrity-preservation are providing these services to only the participants whom all know who are in the conversation.
 
 Access by a third-party is impossible
 -------------------------------------
@@ -276,7 +278,8 @@ If a method makes secure and private communication, intended to be sent over an 
 The software of the end-to-end encrypted system can be trusted
 --------------------------------------------------------------
 
-A way by which users can check that a system does not have a "backdoor" or is performing in accordance to cryptographic protocols' specifications is by making them opensource. Opensource allows users to openly analise the system and be assured of it. However, while many users might be able to do so, some users lack the technological knowledge needed to analyse source code. It is vital that systems provide public security analysis of their source code that can be vetted by any type of user.
+A way by which users can check that a system does not have a "backdoor" or is performing in accordance to cryptographic protocols' specifications is by making them opensource. Opensource allows users to openly analise the system and be assured of it. However, while some users might be able to do so, many users lack the technological knowledge needed to analyse source code. It is vital that systems provide public security analysis of their source code enabling reproducible audits and investigations that can be published and peer reviewed.
+
 
 Pattern inference is minimised
 ------------------------------
