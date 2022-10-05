@@ -49,7 +49,6 @@ author:
 -
        ins: G. Grover
        name: Gurshabad Grover
-       organization: Centre for Internet and Society
        email: gurshabad@cis-india.org
 
 normative:
@@ -278,7 +277,7 @@ If a method makes secure and private communication, intended to be sent over an 
 The software of the end-to-end encrypted system can be trusted
 --------------------------------------------------------------
 
-A way by which users can check that a system does not have a "backdoor" or is performing in accordance to cryptographic protocols' specifications is by making them opensource. Opensource allows users to openly analyse the system and be assured of it. However, while some users might be able to do so, many users lack the technological knowledge needed to analyse source code. It is vital that systems provide public security analyses of their source code enabling reproducible audits and investigations that can be published and peer reviewed.
+A way by which users can check that a system does not have a "backdoor" or is performing in accordance to cryptographic protocols' specifications is by making them open source. Open source allows users to openly analyse the system and be assured of it. However, while some users might be able to do so, many users lack the technological knowledge needed to analyse source code. It is vital that systems provide public security analyses of their source code enabling reproducible audits and investigations that can be published and peer reviewed.
 
 
 Pattern inference is minimised
@@ -318,7 +317,7 @@ Security Considerations
 
 This document does not specify new protocols and therefore does not bring up technical security considerations.
 
-Because some policy decicions may affect the security of the internet, a clear and shared definition of end to end encrypted communication is important in policy related discussions.  This document aims to provide that clarity.
+Because some policy decisions may affect the security of the internet, a clear and shared definition of end to end encrypted communication is important in policy related discussions.  This document aims to provide that clarity.
 
 
 IANA Considerations
