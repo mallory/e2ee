@@ -179,12 +179,12 @@ When looking at implementations of end-to-end encryption from a design perspecti
 
 The features and challenges listed below are framed comprehensively rather than from the perspective of their design, development, implementation or use.
 
-Features
---------
+Properties
+----------
 
-Defining a system can also be done by inspecting what it does, or is meant to do, in the form of features. The features of end-to-end encryption from an implementation perspective can be inspected across several important categories: 1) the necessary features of end-to-end encrypted for the properties of authenticity, confidentiality, and integrity, whereas features of 2) availability, deniability, forward secrecy, and post-compromise security are enhancements to end-to-end encryption.
+This section aims to define the security properties of an end-to-end encrypted system. The properties of end-to-end encryption from an implementation perspective can be inspected across several important categories: 1) the necessary properties of authenticity, confidentiality, and integrity, whereas the properties of 2) availability, deniability, forward secrecy, and post-compromise security are enhancements to end-to-end encryption.
 
-### Necessary features
+### Necessary properties
 
 Authenticity
 : A system provides message authenticity if the recipient and sender attest to each other's identities in relation to the contents of their communications.
@@ -195,7 +195,7 @@ Confidentiality
 Integrity
 : A system provides message integrity when it guarantees that messages have not been modified or lost in transit. If they have been modified or lost, it must be detected in a reliable way such that a recipient is assured that a message cannot be undetectably modified or lost in any way.
 
-### Optional/desirable features
+### Optional/desirable properties and features
 
 Availability
 : A system provides high availability if the user is able to access the contents of the message (decrypt them) when they so desire and potentially from more than one device, i.e. a message arrives to a recipient even if they have been offline for a long time. Note that applications that use this feature often implement a threshold for this property: number or aggregate size of messages; or messages from a month ago can be read by a user that has been offline, but not messages from a year ago.
