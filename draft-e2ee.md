@@ -101,8 +101,15 @@ informative:
      title: "Defining end-to-end security"
      date: 2021
      author:
-        - ins: Chelsea Komlo
+        - ins: C. Komlo
      target: https://github.com/chelseakomlo/e2ee/blob/master/e2ee_definition.pdf
+	 
+   hale:
+     title: "On End-to-End Encryption"
+     date: 2021
+     author:
+        - ins: B. Hale and C. Komlo
+     target: https://eprint.iacr.org/2022/449.pdf
 
 --- abstract
 
@@ -127,50 +134,36 @@ End-to-end encryption, irrespective of the content or the specific methods emplo
 End point
 ---------
 
-Intuitively, an "end" either sends messages or receives them, usually both; other systems on the path are just that - other systems. Other systems MAY be used to facilitate the sending of messages between both "ends", but are not themselves "ends”."
+An "end" either sends messages or receives them, usually both. Other systems on the path are just that: other systems. Other systems MAY be used to facilitate the sending of messages between both "ends", but are not "ends" themselves.
 
-It is, however, not trivial to establish the definition of an end point in isolation, because its existence inherently depends on at least one other entity in a communications system. Instead the end-to-end principle, which is well established {{RFC3724}} in internet standards and introduces nuance, is described in the following sub-section.
-
-However despite the nuance for engineers, it is now widely accepted that the communication system itself begins and ends with the user {{RFC8890}}. Imagine people (through an application's user interface, or user agent) as components in a subsystem's design. An important distinction to this in end-to-end encrypted systems might be configuration channels, such as the use of public key infrastructure where a third party is often used in the authentication phase to enhance the larger system's trust model. Responsible use of public key infrastructure is required in such cases, such that the end-to-end encrypted system does not admit third parties under the user's identity.
-
-User agent and user cannot be equated, nor can they be fully separated. As user-agent computing becomes more complex and often more proprietary, the user agent becomes less of an "advocate" for the best interests of the user. This is why this document introduces a later section on the end-to-end encrypted system being able to fulfill user expectations and serving only the user's interests.
+It is, however, not trivial to establish the definition of an end point in isolation. {{Hale}} Depending on the context, an "end" may be a user; a device colocated with the user; or a set of devices controlled by a user that want to simultaneously participate in the conversation.
 
 End-to-end principle
 --------------------
+The end-to-end principle is a core architectural guideline of the Internet. {{RFC3724}}
 
-In order to describe what the "end-to-end" principle means, we need first to answer "What constitutes an end?", which is an important question in any review of the End-to-End Principle {{RFC3724}}. However the notion of an end point is more fully defined within the principle of end-to-end communications.
+In 1984, the "end-to-end argument" was introduced as a design principle to guide placement of functions among the parts of a communication system. {{saltzer}} Specifically, it suggested that functions that require the knowledge and help of the application (at the endpoints) should not be implemented as part of the communication system itself. 
 
-In 1984 the "end-to-end argument" was introduced {{saltzer}} as a design principle that helps guide placement of functions among the modules of a distributed computer system. It suggests that functions placed at low levels of a system may be redundant or of little value when compared with the cost of providing them at that low level. It is used to design around questions about which parts of the system should make which decisions, and as such the identity of the actual "speaker" or "end" may be less obvious than it appears. The communication described by Saltzer is between communicating processes, which may or may not be on the same physical machine, and may be implemented in various ways. For example, a Border Gateway Protocol (BGP) speaker is often implemented as a process that manages the Routing Information Base (RIB) and communicates with other BGP speakers using an operating system service that implements TCP. The RIB manager might find itself searching the RIB for prefixes that should be advertised to a peer, and performing "writes" to TCP for each one. TCP in this context often implements a variant of the algorithm described in RFC 868 (the "Nagle algorithm"), which accumulates writes in a buffer until there is no data in flight between the communicants, and then sends it - which might happen several times during a single search by the RIB manager. In that sense, the RIB manager might be thought of as the "end", because it decides what should be communicated, or TCP might be the "end", because it actually sends the TCP Segment, detects errors if they occur, retransmits it if necessary, and ultimately decides that the segment has been successfully transferred.
-
-Another important question is "what statement exactly summarizes the end-to-end principle?". Saltzer answered this in two ways, the first of which is that the service implementing the transaction is most correct if it implements the intent of the application that sent it, which would be to move the message toward the destination address in the relevant IP header. Salzer's more thorough treatment, however, deals with end cases that come up in implementation: "Examples discussed in the paper", according to the abstract, "include bit error recovery, security using encryption, duplicate message suppression, recovery from system crashes, and delivery acknowledgement." It also notes that there is occasionally a rationale for ignoring the end-to-end arguments for the purposes of optimization. There may be other user expectations or design features, some explained below, which need to be balanced with the end-to-end argument.
-
-More concisely, suppose that an end user is the end identity. An end-to-end encrypted system may run between potential end points at different network layers within the end identity's possession. These end points may then be considered acceptable sub-identities provided that no path between the end identity and sub-identity is accessible by any outside third party. There are quite a number of examples of common situations where tunnels are used and this does not apply. For instance, the examples below all provide encryption by which data is turned into clear text in locations that are not under control of the end user:
-
-*  The common VPN business model whereby a TLS or an IPsec tunnel terminates at the service provider's server and is subsequently forwarded to its destination elsewhere in unencrypted form;
-* Email transport whereby an unencrypted message traverses from sending mail user agent, between various mail transfer agents, and finally to a receiving mail user agent, all over TLS protected connections;
-* The encrypted connection of last mile connections such as those in 4G LTE;
-
-This definition of end points accounts for potentially several devices owned by a user, and various application-specific forwarding or delivery options among them. It also accounts for end-to-end encrypted systems running at different network layers. Regardless of the sub-identities allowed, the definition is contingent on that all end sub-identities are under the end identity's control and no third party (or their sub-identities, e.g. system components under third-party control) can access the end sub-identities nor links between the sub-identity and end identity.
-This creates a tree hierarchy with the end user as the root at the top, and all potential end points being under their direct control, without third party access.
-As an example, decryption at organizational network router before message forwarding (encrypted or unencrypted) to the end identity does not constitute end-to-end encryption. However, end-to-end encryption to a user's personal device and subsequent end-to-end encrypted message forwarding to another one of the user's personal devices (without access available to any third party at any link or on device) maintains end-to-end encrypted data possession for the user.
+Over the years, the principle has evolved to an understanding that the "network's job is to transmit datagrams as efficiently and flexibly as possible", and the rest should be done at the ends. {{RFC1958}} This principle can also be extended to the design of applications itself. {{RFC3724}}{{RFC3238}} 
 
 Encryption
 ----------
+Encryption is the process of using cryptographic methods to convert plaintext to ciphertext that is decipherable only by authorized parties. Encryption can help extend the end-to-end principle in application design, where now (as before) the function of the network is limited to efficiently transporting messages, but additionally the network cannot access any part of the message itself.
 
-Encryption is fundamental to the end-to-end principle. "End-to-End: The principal of extending characteristics of a protocol or system as far as possible within the system. For example, end-to-end instant message encryption would conceal communication content from one user's instant messaging application through any intermediate devices and servers all the way to the recipient's instant messaging application. If the message was decrypted at any intermediate point--for example at a service provider--then the property of end-to-end encryption would not be present."{{dkg}} Note that this only talks about the encrypted contents of the communication and not the metadata (often in plaintext) generated from it.
+Encryption can be applied in an end-to-end context in many ways. For example, applications may use the double-ratchet algorithm with an authenticated encryption scheme and of an Authenticated Key Exchange (AKE). The usage of these algorithms (or variants of these) is present in many modern messenger applications such as those considered in the IETF Messaging Layer Security working group, whose charter is to create a document that satisfies the need for several internet applications for group key establishment and message protection protocols {{mls}}. OpenPGP, mostly used for email, uses a different technique to achieve security and privacy. It is also chartered in the IETF to create a specification that covers object encryption, object signing, and identity certification {{openpgp}}. Both protocols rely on the use of asymmetric and symmetric encryption, and exchange long-term identity public keys amongst end points.
 
-The way to achieve a truly end-to-end encrypted communication system (with required security and privacy properties) is indeed to encrypt, authenticate and provide integrity of the content of the data exchanged between the endpoints, e.g. sender(s) and receiver(s). The more common end-to-end technique achieve this through the use of the double-ratchet algorithm with an authenticated encryption scheme and of an Authenticated Key Exchange (AKE). The usage of these algorithms (or variants of these) is present in many modern messenger applications such as those considered in the IETF Messaging Layer Security working group, whose charter is to create a document that satisfies the need for several internet applications for group key establishment and message protection protocols {{mls}}. OpenPGP, mostly used for email, uses a different technique to achieve security and privacy. It is also chartered in the IETF to create a specification that covers object encryption, object signing, and identity certification {{openpgp}}. Both protocols rely on the use of asymmetric and symmetric encryption, and exchange long-term identity public keys amongst end points. The IETF has a clear mandate and demonstrated expertise in defining the specifics of secure and private communications of the internet.
+Concise definition of end-to-end encryption
+-------------------------------------------
 
-While encryption is fundamental to the end-to-end principle, it does not stand alone. As in the history of all security, authentication and data integrity properties are also linked, and contributed to the end-to-end nature of end-to-end encryption. Permission of data manipulation or creation of pseudo-identities for third parties to allow access under the user's identity are against the intention of end-to-end encryption. In other words, the application functions only for the end user and does not perform functions for any other entity coverly, nor overtly, say even if that entity claims to have obtained the consent of the end user. Thus, end point authenticity MUST be established as (sub-)identities of the end user, and end-to-end integrity MUST also be maintained by the system. There is considerable system design flexibility available in entity authentication mechanisms and data authentication that still meet this requirement.
-
-Concise definition of end-to-end security
-------------------------------------------
-
-A concise definition for end-to-end security can describe the security of the system by the probability of an adversary's success in breaking the system. Example snippet:
+A concise definition for end-to-end encryption can describe the security of the system by the probability of an adversary's success in breaking the system. For example, it can be said that:
 
 The adversary successfully subverts an end-to-end encrypted system if it can succeed in either of the following: 1) the adversary can produce the participant's local state (meaning the adversary has learned the decrypted contents of participant's messages), or 2) the states of conversation participants do not match (meaning that the adversary has influenced their communication in some way). To prevent the adversary from trivially winning, the adversary is not allowed to compromise the participants' local state.
 
-We can say that a system is end-to-end secure if the adversary has negligible probability of success in either of these two scenarios {{komlo}}.
+We can say that a system is end-to-end encrypted if the adversary has negligible probability of success in either of these two scenarios {{komlo}}.
+
+In a messaging context, "end-to-end instant message encryption would conceal communications from one user's instant messaging application through any intermediate devices and servers all the way to the recipient's instant messaging application." If the message can "be decrypted at any intermediate point... then the property of end-to-end encryption would not be present." {{dkg}
+
+Note that permission of data manipulation or creation of pseudo-identities for third parties to allow access under the user's identity are also violate end-to-end encryption. In other words, the application functions only for the end user and does not perform functions for any other entity coverly, nor overtly, say even if that entity claims to have obtained the consent of the end user. Thus, end point authenticity MUST be established as (sub-)identities of the end user, and end-to-end integrity MUST also be maintained by the system. There is considerable system design flexibility available in entity authentication mechanisms and data authentication that still meet this requirement.
 
 End-to-end encryption implementations
 =====================================
