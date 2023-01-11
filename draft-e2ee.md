@@ -43,7 +43,7 @@ author:
 -
        ins: O. Kolkman
        name: Olaf Kolkman
-       organization: ISOC
+       organization: Internet Society
        email: kolkman@isoc.org
 
 -
@@ -55,10 +55,15 @@ normative:
 
 informative: 
 
+   RFC1958:
+   RFC2119:
+   RFC3238:
    RFC3724:
    RFC3552:
+   RFC4949:
    RFC7258:
    RFC7624:
+   RFC8174:
    RFC8890:
    RFC3935:
 
@@ -103,7 +108,7 @@ informative:
      author:
         - ins: C. Komlo
      target: https://github.com/chelseakomlo/e2ee/blob/master/e2ee_definition.pdf
-	 
+ 
    hale:
      title: "On End-to-End Encryption"
      date: 2021
@@ -126,6 +131,12 @@ The first is a formal definition that draws on the basic understanding of end po
 
 These dimensions taken as a whole comprise a generally comprehensible picture of consensus at the IETF as to what is end-to-end encryption, irrespective of application, from messaging to video conferencing, and between any number of end points. It it worth noting that while the word "encryption" often refers to confidentiality (security) properties, this document shows that end-to-end encryption MUST provide both security and privacy properties. And it provides a definition of which specific security and privacy properties end-to-end encryption should provide.
 
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL
+NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED",
+"MAY", and "OPTIONAL" in this document are to be interpreted as
+described in BCP 14 {{RFC2119}} {RFC8174}} when, and only when, they
+appear in all capitals, as shown here.
+
 Formal definition of end-to-end encryption
 ==========================================
 
@@ -136,7 +147,7 @@ End point
 
 An "end" either sends messages or receives them, usually both. Other systems on the path are just that: other systems. Other systems MAY be used to facilitate the sending of messages between both "ends", but are not "ends" themselves.
 
-It is, however, not trivial to establish the definition of an end point in isolation. {{Hale}} Depending on the context, an "end" may be a user; a device colocated with the user; or a set of devices controlled by a user that want to simultaneously participate in the conversation.
+It is, however, not trivial to establish the definition of an end point in isolation. {{hale}} Depending on the context, an "end" may be a user; a device colocated with the user; or a set of devices controlled by a user that want to simultaneously participate in the conversation.
 
 End-to-end principle
 --------------------
@@ -144,7 +155,7 @@ The end-to-end principle is a core architectural guideline of the Internet. {{RF
 
 In 1984, the "end-to-end argument" was introduced as a design principle to guide placement of functions among the parts of a communication system. {{saltzer}} Specifically, it suggested that functions that require the knowledge and help of the application (at the endpoints) should not be implemented as part of the communication system itself. 
 
-Over the years, the principle has evolved to an understanding that the "network's job is to transmit datagrams as efficiently and flexibly as possible", and the rest should be done at the ends. {{RFC1958}} This principle can also be extended to the design of applications itself. {{RFC3724}}{{RFC3238}} 
+Over the years, the principle has evolved to an understanding that the "network's job is to transmit datagrams as efficiently and flexibly as possible", and the rest should be done at the ends. {{RFC1958}} This principle can also be extended to the design of applications itself. {{saltzer}}{RFC3724}}{{RFC3238}} 
 
 Encryption
 ----------
@@ -161,7 +172,7 @@ The adversary successfully subverts an end-to-end encrypted system if it can suc
 
 We can say that a system is end-to-end encrypted if the adversary has negligible probability of success in either of these two scenarios {{komlo}}.
 
-In a messaging context, "end-to-end instant message encryption would conceal communications from one user's instant messaging application through any intermediate devices and servers all the way to the recipient's instant messaging application." If the message can "be decrypted at any intermediate point... then the property of end-to-end encryption would not be present." {{dkg}
+In a messaging context, "end-to-end instant message encryption would conceal communications from one user's instant messaging application through any intermediate devices and servers all the way to the recipient's instant messaging application." If the message can "be decrypted at any intermediate point... then the property of end-to-end encryption would not be present." {{dkg}}
 
 Note that permission of data manipulation or creation of pseudo-identities for third parties to allow access under the user's identity are also violate end-to-end encryption. In other words, the application functions only for the end user and does not perform functions for any other entity coverly, nor overtly, say even if that entity claims to have obtained the consent of the end user. Thus, end point authenticity MUST be established as (sub-)identities of the end user, and end-to-end integrity MUST also be maintained by the system. There is considerable system design flexibility available in entity authentication mechanisms and data authentication that still meet this requirement.
 
