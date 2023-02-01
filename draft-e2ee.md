@@ -214,7 +214,7 @@ Metadata obfuscation
 : Digital communication inevitably generates data other than the content of the communication itself, such as IP addresses, group memberships, date and time of messages. To enhance the privacy and security of end-to-end encryption, steps should be taken to minimize metadata leakage such as users hiding IP addresses, reducing non-routing metadata, and avoiding extraneous message headers.
 
 Disappearing messages
-: For truly confidential conversations, deleting one-by-one sensitive messages typically depends on a level of client-side security that is unsustainable. Features like "delete for me" or "delete for everyone" helps with individual messages. What is better is the automatic deletion of whole conversations after an agreed upon timeframe by all parties, eg disappearing messages. In any case, whenever a user has deleted content for all, the provider must ensure complete removal of the content and even then a certain level of trust among users of the system is needed.
+: For confidential conversations, deleting one-by-one sensitive messages typically depends on a level of client-side security that is unsustainable. Features like "delete for me" or "delete for everyone" helps with individual messages. What is better is the automatic deletion of whole conversations after an agreed upon timeframe by all parties, eg disappearing messages. In any case, whenever a user has deleted content for all, the provider must ensure complete removal of the content and even then a certain level of trust among users of the system is needed.
 
 Challenges
 ----------
