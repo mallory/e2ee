@@ -58,7 +58,6 @@ informative:
    RFC7258:
    RFC7624:
    RFC8174:
-   RFC8890:
    RFC3935:
 
    saltzer:
