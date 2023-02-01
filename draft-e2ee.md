@@ -180,18 +180,18 @@ The features and challenges listed below are framed comprehensively rather than 
 Properties
 ----------
 
-This section aims to define the security properties of an end-to-end encrypted system. The properties of end-to-end encryption from an implementation perspective can be inspected across several important categories: 1) the necessary properties of authenticity, confidentiality, and integrity, whereas the properties of 2) availability, deniability, forward secrecy, and post-compromise security are enhancements to end-to-end encryption.
+This section aims to define the security properties of an end-to-end encrypted system. The properties of end-to-end encryption from an implementation perspective can be inspected across several important categories: 1) the necessary properties of confidentiality, integrity and authenticity whereas the properties of 2) availability, deniability, forward secrecy, and post-compromise security are enhancements to end-to-end encryption.
 
 ### Necessary properties
-
-Authenticity
-: A system provides message authenticity if the recipient and sender attest to each other's identities in relation to the contents of their communications.
 
 Confidentiality
 : A system provides message confidentiality if only the sender and intended recipient(s) can read the message plaintext, i.e. message sent between participants can only be read by the agreed upon participants in the group and all participants share the identical group member list.
 
 Integrity
 : A system provides message integrity when it guarantees that messages have not been modified or lost in transit. If they have been modified or lost, it must be detected in a reliable way such that a recipient is assured that a message cannot be undetectably modified or lost in any way.
+
+Authenticity
+: A system provides message authenticity if the recipient and sender attest to each other's identities in relation to the contents of their communications.
 
 ### Optional/desirable properties and features
 
@@ -263,7 +263,7 @@ Trustworthy
 
 This definition is complete in its positive and negative aspects: what it is, e.g. "Worthy of confidence" and what it is not, e.g. in RFC 7258: "behavior that subverts the intent of communicating parties without the agreement of those parties" {{RFC7258}}.
 
-Therefore, a trustworthy end-to-end encrypted communication system is the provider of the set of functions needed by two or more parties to communicate among each other in a confidential, authenticated and integrity-preserving fashion without any third party having access to the content of that communication where the functions that offer the confidentiality, authenticity and integrity-preservation are providing these services to only the participants whom all know who are in the conversation.
+Therefore, a trustworthy end-to-end encrypted communication system is the provider of the set of functions needed by two or more parties to communicate among each other in a confidential, authenticated and integrity-preserving fashion without any third party having access to the content of that communication where the functions that offer the confidentiality, integrity and authenticity-preservation are providing these services to only the participants whom all know who are in the conversation.
 
 Access by a third-party is impossible
 -------------------------------------
