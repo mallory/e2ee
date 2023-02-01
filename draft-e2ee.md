@@ -219,8 +219,6 @@ Disappearing messages
 Challenges
 ----------
 
-Earlier in this document end-to-end encryption was defined using formal definitions assumed by internet protocol implementations. Also because the IETF is the place for "producing high quality, relevant technical documents that influence the way people design, use, and manage the Internet" {{RFC3935}} the reader can be confident that current implementations of end-to-end encrypted technologies in the IETF indicate the cutting edge of their developments, which is yet another way to define what is, or ideally should be, a particular technology.
-
 Below is best effort list of the challenges currently faced by protocol designers of end-to-end encrypted systems. Problems that fall outside of this list are likely 1) unnecessary feature requests that negligibly, or do nothing to, achieve the aims of end-to-end encrypted systems, or are 2) in some way antithetical to the goals of end-to-end encrypted systems.
 
 * Making messaging applications interoperable is an important goal for a healthy and user centric internet ecosystem, however it requires careful design of protocols and systems, such as content type negotiation; provisions of global services, such as discovery; and a great deal of cooperation amongst implementers.
