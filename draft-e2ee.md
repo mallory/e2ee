@@ -35,12 +35,6 @@ author:
        email: cherenkov@riseup.net
 
 -
-       ins: F. Baker
-       name: Fred Baker
-       organization:
-       email: fredbaker.IETF@gmail.com
-
--
        ins: O. Kolkman
        name: Olaf Kolkman
        organization: Internet Society
@@ -306,7 +300,7 @@ Features and functionalities of end-to-end encryption should be developed and im
 Acknowledgements
 ================
 
-Fred Baker, Stephen Farrell, Richard Barnes, Olaf Kolkman all contributed to the early strategic thinking of this document and whether it would be useful to the IETF community.
+Fred Baker, Stephen Farrell, Richard Barnes all contributed to the early strategic thinking of this document and whether it would be useful to the IETF community.
 
 The folks at Riseup and the LEAP Encryption Access Project have articulated brilliantly the hardest parts of end-to-end encryption systems that serve the end users' right to whisper.
 
