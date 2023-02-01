@@ -255,8 +255,6 @@ Users talking to one another in an end-to-end encrypted system should be the onl
 Providers are trustworthy
 -------------------------
 
-While "trustworthy" can be rigorously defined from an engineering perspective, for the purposes of this document a definition inspired by an internal workshop for Internet Society staff is sufficient:
-
 Trustworthy
 : A system is completely trustworthy if and only if it is completely resilient, reliable, accountable, and secure in a way that consistently meets users’ expectations. The opposite of trustworthy is untrustworthy.
 
