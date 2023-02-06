@@ -94,6 +94,10 @@ informative:
      author:
         - ins: Global Encryption Coaliation
      target: https://www.globalencryption.org/2020/11/breaking-encryption-myths/
+     
+   hale:
+     title: "On End-to-End Encryption"
+     date: 2021
 
 --- abstract
 
