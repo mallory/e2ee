@@ -94,20 +94,6 @@ informative:
      author:
         - ins: Global Encryption Coaliation
      target: https://www.globalencryption.org/2020/11/breaking-encryption-myths/
-     
-   komlo:
-     title: "Defining end-to-end security"
-     date: 2021
-     author:
-        - ins: C. Komlo
-     target: https://github.com/chelseakomlo/e2ee/blob/master/e2ee_definition.pdf
- 
-   hale:
-     title: "On End-to-End Encryption"
-     date: 2021
-     author:
-        - ins: B. Hale and C. Komlo
-     target: https://eprint.iacr.org/2022/449.pdf
 
 --- abstract
 
