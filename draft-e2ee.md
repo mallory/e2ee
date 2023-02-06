@@ -159,15 +159,11 @@ Encryption can be applied in an end-to-end context in many ways. For example, ap
 Concise definition of end-to-end encryption
 -------------------------------------------
 
-A concise definition for end-to-end encryption can describe the security of the system by the probability of an adversary's success in breaking the system. For example, it can be said that:
+An end-to-end-encryption service provides confidentiality, integrity, and authenticity between end users. Another concise definition already exists for messaging: "End-to-end instant message encryption would conceal communications between one user's instant messaging application through any intermediate devices and servers all the way to the recipient's instant messaging application." {{dkg}}
 
-The adversary successfully subverts an end-to-end encrypted system if it can succeed in either of the following: 1) the adversary can produce the participant's local state (meaning the adversary has learned the decrypted contents of participant's messages), or 2) the states of conversation participants do not match (meaning that the adversary has influenced their communication in some way). To prevent the adversary from trivially winning, the adversary is not allowed to compromise the participants' local state.
+Confidentiality is broken if content can be decrypted at any intermediate point.
 
-We can say that a system is end-to-end encrypted if the adversary has negligible probability of success in either of these two scenarios {{komlo}}.
-
-In a messaging context, "end-to-end instant message encryption would conceal communications from one user's instant messaging application through any intermediate devices and servers all the way to the recipient's instant messaging application." If the message can "be decrypted at any intermediate point... then the property of end-to-end encryption would not be present." {{dkg}}
-
-Note that permission of data manipulation or creation of pseudo-identities for third parties to allow access under the user's identity are also violate end-to-end encryption. In other words, the application functions only for the end user and does not perform functions for any other entity coverly, nor overtly, say even if that entity claims to have obtained the consent of the end user. Thus, end point authenticity MUST be established as (sub-)identities of the end user, and end-to-end integrity MUST also be maintained by the system. There is considerable system design flexibility available in entity authentication mechanisms and data authentication that still meet this requirement.
+As for integrity and authenticity, permission of data manipulation or creation of pseudo-identities for third parties to allow access under the user's identity also violate end-to-end encryption. In other words, the application functions only for the end user and does not perform functions for any other entity coverly, nor overtly, say even if that entity claims to have obtained the consent of the end user. Thus, end point authenticity MUST be established as (sub-)identities of the end user, and end-to-end integrity MUST also be maintained by the system. There is considerable system design flexibility available in the mechanisms for authentication and integrity, specifically data authentication, that still meet this requirement.
 
 End-to-end encryption implementations
 =====================================
