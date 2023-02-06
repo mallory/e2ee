@@ -47,7 +47,7 @@ author:
 
 normative:
 
-informative: 
+informative:
 
    RFC1958:
    RFC2119:
@@ -94,33 +94,19 @@ informative:
      author:
         - ins: Global Encryption Coaliation
      target: https://www.globalencryption.org/2020/11/breaking-encryption-myths/
-     
-   komlo:
-     title: "Defining end-to-end security"
-     date: 2021
-     author:
-        - ins: C. Komlo
-     target: https://github.com/chelseakomlo/e2ee/blob/master/e2ee_definition.pdf
- 
-   hale:
-     title: "On End-to-End Encryption"
-     date: 2021
-     author:
-        - ins: B. Hale and C. Komlo
-     target: https://eprint.iacr.org/2022/449.pdf
 
 --- abstract
 
 End-to-end encryption is an application of cryptography mechanisms and properties in communication systems between endpoints. End-to-end encrypted systems are exceptional in providing both security and privacy properties through confidentiality, integrity and authenticity features for users. Improvements to end-to-end encryption strive to maximize the user's security and privacy while balancing usability and availability. Users of end-to-end encrypted communications expect trustworthy providers of secure implementations to respect and protect them.
 
 --- middle
-  
+
 Introduction
 ============
 
 This document uses three different dimensions that define end-to-end encryption, which can be applied in a variety of contexts.
 
-The first is a formal definition that draws on the basic understanding of end points and cryptography, where it is comprised of necessary constituent parts but considered as a system. The second looks at end-to-end encrypted implementations from a design perspective, both its fundamental features and proposed improvements on those features. Lastly this document considers the expectations of the user of end-to-end encryption.
+The first is a formal definition that draws on the basic understanding of end points and cryptography, where it is comprised of necessary constituent parts but considered as a system. The second looks at end-to-end encrypted implementations from a design perspective, both its fundamental features and proposed improvements on those features. Lastly, this document considers the expectations of the user of end-to-end encryption.
 
 These dimensions taken as a whole comprise a generally comprehensible picture of consensus at the IETF as to what is end-to-end encryption, irrespective of application, from messaging to video conferencing, and between any number of end points. It it worth noting that while the word "encryption" often refers to confidentiality (security) properties, this document shows that end-to-end encryption MUST provide both security and privacy properties. And it provides a definition of which specific security and privacy properties end-to-end encryption should provide.
 
@@ -146,15 +132,15 @@ End-to-end principle
 --------------------
 The end-to-end principle is a core architectural guideline of the Internet. {{RFC3724}}
 
-In 1984, the "end-to-end argument" was introduced as a design principle to guide placement of functions among the parts of a communication system. {{saltzer}} Specifically, it suggested that functions that require the knowledge and help of the application (at the endpoints) should not be implemented as part of the communication system itself. 
+In 1984, the "end-to-end argument" was introduced as a design principle to guide placement of functions among the parts of a communication system. {{saltzer}} Specifically, it suggested that functions that require the knowledge and help of the application (at the endpoints) should not be implemented as part of the communication system itself.
 
-Over the years, the principle has evolved to an understanding that the "network's job is to transmit datagrams as efficiently and flexibly as possible", and the rest should be done at the ends. {{RFC1958}} This principle can also be extended to the design of applications itself. {{saltzer}}{RFC3724}}{{RFC3238}} 
+Over the years, the principle has evolved to an understanding that the "network's job is to transmit datagrams as efficiently and flexibly as possible", and the rest should be done at the ends. {{RFC1958}} This principle can also be extended to the design of applications itself. {{saltzer}}{RFC3724}}{{RFC3238}}
 
 Encryption
 ----------
 Encryption is the process of using cryptographic methods to convert plaintext to ciphertext that is decipherable only by authorized parties. Encryption can help extend the end-to-end principle in application design, where now (as before) the function of the network is limited to efficiently transporting messages, but additionally the network cannot access any part of the message itself.
 
-Encryption can be applied in an end-to-end context in many ways. For example, applications may use the double-ratchet algorithm with an authenticated encryption scheme and of an Authenticated Key Exchange (AKE). The usage of these algorithms (or variants of these) is present in many modern messenger applications such as those considered in the IETF Messaging Layer Security working group, whose charter is to create a document that satisfies the need for several internet applications for group key establishment and message protection protocols {{mls}}. OpenPGP, mostly used for email, uses a different technique to achieve security and privacy. It is also chartered in the IETF to create a specification that covers object encryption, object signing, and identity certification {{openpgp}}. Both protocols rely on the use of asymmetric and symmetric encryption, and exchange long-term identity public keys amongst end points.
+Encryption can be applied in an end-to-end context in many ways. For example, applications may use the double-ratchet algorithm (which uses an authenticated encryption scheme) and of an Authenticated Key Exchange (AKE). The usage of these algorithms (or variants of these) is present in many modern messenger applications such as those considered in the IETF Messaging Layer Security working group, whose charter is to create a document that satisfies the need for several internet applications for group key establishment and message protection protocols {{mls}}. OpenPGP, mostly used for email, uses a different technique to achieve security and privacy. It is also chartered in the IETF to create a specification that covers object encryption, object signing, and identity certification {{openpgp}}. Both protocols rely on the use of asymmetric and symmetric encryption, and exchange long-term identity public keys amongst end points.
 
 Concise definition of end-to-end encryption
 -------------------------------------------
@@ -183,12 +169,15 @@ Confidentiality
 : A system provides message confidentiality if only the sender and intended recipient(s) can read the message plaintext, i.e. message sent between participants can only be read by the agreed upon participants in the group and all participants share the identical group member list.
 
 Integrity
-: A system provides message integrity when it guarantees that messages have not been modified or lost in transit. If a message has been modified or lost, it must be detected in a reliable way by the recipient.
+: A system provides message integrity when it guarantees that messages have not been modified in transit. If a message has been modified, it must be detected in a reliable way by the recipient.
 
-Authenticity
-: A system provides message authenticity if the recipient and sender attest to each other's identities in relation to the contents of their communications.
+
+Authentication
+: A system provides authentication if the recipient and sender attest to each other's identities in relation to the contents of their communications.
 
 ### Optional/desirable properties and features
+
+There is a set of optional/desirable features that a end-to-end system can provide. These properties can be related to the network, to the user interface or specialized variants of the previous features.
 
 Availability
 : A system provides high availability if the user is able to access the contents of the message (decrypt them) when they so desire and potentially from more than one device. For example, a message can arrive to a recipient even after they have been offline for a long time. Note that applications that use this feature often implement a threshold for this property: number or aggregate size of messages; or messages from a month ago can be read by a user that has been offline, but not messages from a year ago.
@@ -197,19 +186,19 @@ Loss Resilience
 : If a message is permanently lost by the network, sender(s) and/or recipient(s) should still be able to communicate.
 
 Deniability
-: Deniability ensures that anyone able to decrypt a record of the transcript, including message recipients, cannot cryptographically prove to others that a particular participant of a communication authored a specific message. As demonstrated by widely implemented protocols, this optional property must exist in conjunction with the necessary property of message authenticity, i.e. participants in a communication must be assured that they are communicating with the intended parties but this assurance cannot be transmitted to any other parties.
+: Deniability ensures that anyone able to decrypt a record of the transcript, including message recipients, cannot cryptographically prove to others that a particular participant of a communication authored a specific message. As demonstrated by widely implemented protocols, this optional property must exist in conjunction with the necessary property of authentication, i.e. participants in a communication must be assured that they are communicating with the intended parties but this assurance cannot be transmitted to any other parties.
 
 Forward secrecy
 : Forward secrecy is a security property that prevents attackers from decrypting encrypted data they have previously captured over a communication channel before the time of compromise, if the attacker compromises one of the endpoints. Forward secrecy is usually achieved by regularly deriving new encryption/decryption keys, and destroying old keys that are no longer required to encrypt or decrypt messages.
 
 Post-compromise security
-: Post-compromise security is a security property that seeks to guarantee future confidentiality and integrity even in the face of an end-point compromise (and consequently that communication sent post-compromise is protected with the same security properties that existed before the compromise). It is usually achieved by adding new ephemeral key exchanges (new randomness) to the derivation of encryption/decryption keys every 'x' amount of time or after 'n' messages sent. Note that post-compromise security is not met in the face of active attackers.
+:Post-compromise security is a security property that seeks to guarantee future confidentiality and integrity in the face of a passive end-point compromise (and consequently that communication sent post-compromise is protected with the same security properties that existed before the compromise). It is usually achieved by adding new ephemeral key exchanges (new randomness) to the derivation of encryption/decryption keys every 'x' amount of time or after 'n' messages sent. Note that post-compromise security is not met in the face of active attackers that compromise an end-point. This property can add a level of complexity to a protocol as deriving new key material can be expensive, and, therefore, it has to be carefully evaluated as part of a system's design.
 
 Metadata obfuscation
 : Digital communication inevitably generates data other than the content of the communication itself, such as IP addresses, group memberships, and date and time of messages. To enhance the privacy and security of end-to-end encryption, steps should be taken to minimize metadata. Additional steps should be taken to prevent leakage such as hiding users' IP addresses, reducing non-routing metadata, and avoiding extraneous message headers.
 
 Disappearing messages
-: For confidential conversations, deleting one-by-one sensitive messages typically depends on a level of client-side security that is unsustainable. Features like "delete for me" or "delete for everyone" helps with individual messages. What is better is the automatic deletion of whole conversations after an agreed upon timeframe by all parties, eg disappearing messages. In any case, whenever a user has deleted content for all, the provider must ensure complete removal of the content and even then a certain level of trust among users of the system is needed.
+: For confidential conversations, deleting one-by-one sensitive messages typically depends on a level of client-side security that is unsustainable. Features like "delete for me" or "delete for everyone" helps with individual messages. What is better is the automatic deletion of whole conversations after an agreed upon timeframe by all parties, e.g. disappearing messages. In any case, whenever a user has deleted content for all, the provider must ensure complete removal of the content and even then a certain level of trust among users of the system is needed.
 
 Challenges
 ----------
