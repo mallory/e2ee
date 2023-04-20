@@ -1,7 +1,7 @@
 ---
 title: Definition of End-to-end Encryption
 abbrev: e2ee
-docname: draft-knodel-e2ee-definition-09
+docname: draft-knodel-e2ee-definition-10
 category: info
 
 ipr: trust200902
@@ -101,7 +101,7 @@ informative:
 
 --- abstract
 
-This document provides a definition of end-to-end encryption (E2EE) rom both the perspective of a regular internet user as well as from the perspective of required properties for implementers.
+This document provides a definition of end-to-end encryption (E2EE) from both the perspective of a regular internet user as well as from the perspective of required properties for implementers.
 
 --- middle
 
