@@ -108,7 +108,7 @@ This document provides a definition of end-to-end encryption (E2EE) from both th
 Introduction
 ============
 
-End-to-end encryption is an application of cryptography mechanisms and properties in communication systems between endpoints. End-to-end encrypted systems provide security and privacy through confidentiality, integrity, authenticity and forward secrecy for communication amongst human users. Such communication amongst users can include messages, email, video, audio, and other forms of media.
+End-to-end encryption is an application of cryptography mechanisms and properties in communication systems between endpoints. End-to-end encrypted systems provide security and privacy through confidentiality, integrity, authenticity and forward secrecy for communication amongst people. Such communication can include messages, email, video, audio, and other forms of media.
 
 Improvements to end-to-end encryption strive to maximize the user's security and privacy while balancing usability and availability. 
 
@@ -132,7 +132,7 @@ The principle has evolved to an understanding that the "network's job is to tran
 
 Encryption
 ----------
-Encryption is the process of using cryptographic methods to convert plaintext to ciphertext that is decipherable only by authorized parties. Encryption can help extend the end-to-end principle in application design, where now (as before) the function of the network is limited to efficiently transporting messages, but additionally the network cannot access any part of the message itself.
+Encryption is the process of using cryptographic methods to convert plaintext to ciphertext that is decipherable only by authorized parties. Encryption can help extend the end-to-end principle in application design, where the function of the network is limited to efficiently transporting messages, but additionally the network cannot access any part of the message itself.
 
 Encryption can be applied in an end-to-end context in many ways. For example, applications may use the double-ratchet algorithm (which uses an authenticated encryption scheme) and of an Authenticated Key Exchange (AKE). The usage of these algorithms (or variants of these) is present in many modern messenger applications such as those adopted in the IETF Messaging Layer Security working group, whose charter is to create a document that satisfies the need for several internet applications for group key establishment and message protection protocols {{mls}}. OpenPGP, mostly used for email, uses a different technique to achieve security and privacy. It is also chartered in the IETF to create a specification that covers object encryption, object signing, and identity certification {{openpgp}}. Both protocols rely on the use of asymmetric and symmetric encryption, and exchange long-term identity public keys amongst end points.
 
@@ -176,7 +176,7 @@ Forward secrecy
 There is a set of optional/desirable features that a end-to-end system can provide. These properties can be related to the network, to the user interface or specialized variants of the previous features.
 
 Availability
-: A system provides high availability if the user is able to access the contents of the message (decrypt them) when they so desire and potentially from more than one device. For example, a message can arrive to a recipient even after they have been offline for a long time. Note that applications that use this feature often implement a threshold for this property: number or aggregate size of messages; or messages from a month ago can be read by a user that has been offline, but not messages from a year ago.
+: A system provides high availability if the user is able to decrypt the contents of the message when they so desire and potentially from more than one device. For example, a message can arrive to a recipient even after they have been offline for a long time. Note that applications that use this feature often implement a threshold for this property: number or aggregate size of messages; or messages from a month ago can be read by a user that has been offline, but not messages from a year ago.
 
 Loss Resilience
 : If a message is permanently lost by the network, sender(s) and/or recipient(s) should still be able to communicate.
@@ -185,13 +185,13 @@ Deniability
 : Deniability ensures that anyone able to decrypt a record of the transcript, including message recipients, cannot cryptographically prove to others that a particular participant of a communication authored a specific message. As demonstrated by widely implemented protocols, this optional property must exist in conjunction with the necessary property of authentication, i.e. participants in a communication must be assured that they are communicating with the intended parties but this assurance cannot be transmitted to any other parties.
 
 Post-compromise security
-: Post-compromise security is a security property that seeks to guarantee future confidentiality and integrity in the face of a passive end-point compromise (and consequently that communication sent post-compromise is protected with the same security properties that existed before the compromise). It is usually achieved by adding new ephemeral key exchanges (new randomness) to the derivation of encryption/decryption keys every 'x' amount of time or after 'n' messages sent. Note that post-compromise security is not met in the face of active attackers that compromise an end-point. This property can add a level of complexity to a protocol as deriving new key material can be expensive, and, therefore, it has to be carefully evaluated as part of a system's design.
+: Post-compromise security is a security property that seeks to guarantee future confidentiality and integrity in the face of a passive end-point compromise and consequently that communication sent post-compromise is protected with the same security properties that existed before the compromise. It is usually achieved by adding new ephemeral key exchanges, ie new randomness, to the derivation of encryption/decryption keys every 'x' amount of time or after 'n' messages sent. Note that post-compromise security is not met in the face of active attackers that compromise an end-point. This property can add a level of complexity to a protocol as deriving new key material can be expensive, and, therefore, it has to be carefully evaluated as part of a system's design.
 
 Metadata obfuscation
 : Digital communication inevitably generates data other than the content of the communication itself, such as IP addresses, user identifiers, group memberships, date and time of messages and size of messages. Inferred metadata includes interaction between IP addresses, time of first contact and frequencies of contact, login, and messages. To enhance the privacy and security of end-to-end encryption, steps should be taken to minimize, obscure or delete metadata.
 
 Disappearing messages
-: For confidential conversations, deleting one-by-one sensitive messages typically depends on a level of client-side security that is unsustainable. For example, endusers can still copy text or screenshot images outside the secured client application.  A certain level of trust among users of the system is required.  That said, features like "delete for me", "delete for everyone" or "disppearing messages" (time-based automated deletion of content) still provide a valuable defense amongst trusted parties in the event of a compromise of a device of one of the participants.
+: For confidential conversations, deleting one-by-one sensitive messages typically depends on a level of client-side security that is unsustainable. For example, endusers can still copy text or screenshot images outside the secured client application.  A certain level of trust among users of the system is required.  That said, manual actions like "delete for me" and "delete for everyone", or time-based automated deletion of content with "disppearing messages" still provide a valuable defense amongst trusted parties in the event of a compromise of a device of one of the participants.
 
 Challenges
 ----------
@@ -202,9 +202,9 @@ Below is a list of some challenges currently faced by designers of end-to-end en
 
 * Public key verification is very difficult for users to manage. Authentication of the two ends is required for secure and private conversations. Therefore, solving the problem of verification of public keys is a major concern for any end-to-end encrypted system design. Some applications bind together the account identity and the key, and leave users to establish a trust relationship between them, assisted by public key fingerprint information.
 
- * Users want to smoothly switch application use between devices, but this comes at a cost to the security and privacy of the communication. Thus, there is a problem of availability in end-to-end encrypted systems because the account identity's private key is generated by and stored on the end-user's original device and to move the private key to another device can compromise the security of one of the end-points of the system (by opening the door to key-impersonation attacks, for example).
+ * Users want to smoothly switch application use between devices, but this comes at a cost to the security and privacy of the communication. Thus, there is a problem of availability in end-to-end encrypted systems because the account identity's private key is generated by and stored on the end-user's original device and to move the private key to another device can compromise the security of one of the end-points of the system, eg by opening the door to key-impersonation attacks.
 
- * Existing protocols are vulnerable to metadata analysis, even though metadata is often as sensitive as message content. Metadata is unencrypted (and often unencryptable) information that travels through the network and includes delivery-relevant details that servers require such as the account identity of end-points, timestamps, message size or more. Metadata is difficult to eliminate or obfuscate entirely.
+ * Existing protocols are vulnerable to metadata analysis, even though metadata is often as sensitive as message content. Metadata is unencrypted (and sometimes unencryptable) information that travels through the network and includes delivery-relevant details that servers require such as the account identity of end-points, timestamps, message size or more. Metadata is difficult to eliminate or obfuscate entirely.
 
  * Confidential and secure communications systems should also maintain the privacy of users but this is necessarily balanced with authentication and is related to the metadata problem for account identity.
 
@@ -252,7 +252,7 @@ If a method makes secure and private communication, intended to be sent over an 
 Pattern inference is minimised
 ------------------------------
 
-Analyses such as traffic fingerprinting or other (encrypted or unencrypted) data analysis techniques, outside of or as part of end-to-end encrypted system design, allow third parties to draw inferences from communication that was intended to be confidential. "By allowing private user data to be scanned via direct access by servers and their providers," the use of these methods should be considered an affront to "the privacy expectations of users of end-to-end encrypted communication systems" {{GEC-EU}}.
+Analyses such as traffic fingerprinting or other encrypted or unencrypted data analysis techniques, outside of or as part of end-to-end encrypted system design, allow third parties to draw inferences from communication that was intended to be confidential. "By allowing private user data to be scanned via direct access by servers and their providers," the use of these methods should be considered an affront to "the privacy expectations of users of end-to-end encrypted communication systems" {{GEC-EU}}.
 
 Not only should an end-to-end encrypted system value user data privacy by not explicitly enabling pattern inference, it should actively be attempting to solve issues of metadata and traceability (enhanced metadata) through further innovation that stays ahead of advances in these techniques.
 
