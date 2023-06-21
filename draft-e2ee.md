@@ -112,9 +112,6 @@ End-to-end encryption is an application of cryptography mechanisms and propertie
 
 Improvements to end-to-end encryption strive to maximize the user's security and privacy while balancing usability and availability. 
 
-Formal definition of end-to-end encryption
-==========================================
-
 End-to-end encryption, irrespective of the content or the specific methods employed, relies on two important and rigorous technical concepts: the end-to-end principle as defined in the IETF; and encryption, an application of cryptographic mechanisms and the primary means employed by the IETF to secure internet protocols and maintain the confidentiality of content delivered via these internet protocols. Where end-to-end encryption is comprised of these necessary constituent parts, a systems approach also defines their interplay. In the field of cryptography it is also possible to achieve a concise definition of end-to-end encrypted security.
 
 End point
@@ -136,8 +133,8 @@ Encryption is the process of using cryptographic methods to convert plaintext to
 
 Encryption can be applied in an end-to-end context in many ways. For example, applications may use the double-ratchet algorithm (which uses an authenticated encryption scheme) and of an Authenticated Key Exchange (AKE). The usage of these algorithms (or variants of these) is present in many modern messenger applications such as those adopted in the IETF Messaging Layer Security working group, whose charter is to create a document that satisfies the need for several internet applications for group key establishment and message protection protocols {{mls}}. OpenPGP, mostly used for email, uses a different technique to achieve security and privacy. It is also chartered in the IETF to create a specification that covers object encryption, object signing, and identity certification {{openpgp}}. Both protocols rely on the use of asymmetric and symmetric encryption, and exchange long-term identity public keys amongst end points.
 
-Concise definition of end-to-end encryption
--------------------------------------------
+Formal definition of end-to-end encryption
+==========================================
 
 An end-to-end-encryption service provides confidentiality, integrity, authenticity and forward secrecy between ends.
 
