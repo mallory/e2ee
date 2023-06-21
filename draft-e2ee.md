@@ -1,7 +1,7 @@
 ---
 title: Definition of End-to-end Encryption
 abbrev: e2ee
-docname: draft-knodel-e2ee-definition-10
+docname: draft-knodel-e2ee-definition-11
 category: info
 
 ipr: trust200902
@@ -112,7 +112,7 @@ End-to-end encryption is an application of cryptography mechanisms and propertie
 
 Improvements to end-to-end encryption strive to maximize the user's security and privacy while balancing usability and availability. 
 
-End-to-end encryption, irrespective of the content or the specific methods employed, relies on two important and rigorous technical concepts: the end-to-end principle as defined in the IETF; and encryption, an application of cryptographic mechanisms and the primary means employed by the IETF to secure internet protocols and maintain the confidentiality of content delivered via these internet protocols. Where end-to-end encryption is comprised of these necessary constituent parts, a systems approach also defines their interplay. In the field of cryptography it is also possible to achieve a concise definition of end-to-end encrypted security.
+End-to-end encryption, irrespective of the content or the specific methods employed, relies on two important and rigorous technical concepts: the end-to-end principle as defined in the IETF; and encryption, an application of cryptographic mechanisms and the primary means employed by the IETF to secure internet protocols and maintain the confidentiality of content delivered via these internet protocols. Where end-to-end encryption is comprised of these necessary constituent parts, a systems approach also defines their interplay. 
 
 End point
 ---------
@@ -237,7 +237,7 @@ This definition is complete in its positive and negative aspects: what it is, e.
 
 Therefore, a trustworthy end-to-end encrypted communication system is the provider of the set of functions needed by two or more parties to communicate among each other in a confidential, authenticated and integrity-preserving fashion without any third party having access to the content of that communication.
 
-A proper implementation of end-to-end encryption significantly reduces the need of a user to trust a provider. However, this is contingent on users having some guarantee that the system actually works in conformance to the stated specification and security properties of end-to-end encryption. One way by which users can increase their trust in the system and confirm their system is performing in accordance to cryptographic protocols' specifications is using systems that are releasing their software as open source.  Open source software allows technical users to analyse the system and be assured of its functioning.  While most users will not be able to do so, as typical users lack the technological knowledge needed to analyse source code, technical communities can do so.  It is vital that systems provide public security analyses of their source code enabling reproducible builds and audits and investigations that can be published and peer reviewed.
+A proper implementation of end-to-end encryption significantly reduces the need of a user to trust a provider. However, this is contingent on users having some guarantee that the system actually works in conformance to the stated specification and security properties of end-to-end encryption. One way by which users can increase their trust in the system and confirm their system is performing in accordance to cryptographic protocols' specifications is using systems that are releasing their software as open source.  Open source software allows technical users to analyse the system and be assured of its functioning.  While most users will not be able to do so, as typical users lack the technological knowledge needed to analyse source code, technical communities can do so.  It is vital that systems provide publicly accessible security analyses of their source code, enabling reproducible builds and audits and investigations that can be published and peer reviewed.
 
 Access by a third-party is impossible
 -------------------------------------
