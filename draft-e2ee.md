@@ -284,7 +284,7 @@ The folks at Riseup and the LEAP Encryption Access Project have articulated bril
 
 Ryan Polk at the Internet Society has energy to spare when it comes to organising meaningful contributions, like this one, for the technical advisors of the Global Encryption Coalition.
 
-Reviews, comments and questions from Adrian Farrel, Eric Rescorla and Paul Wouters lead to improvement of this document.
+Reviews, comments and questions from Paul Wouters, Adrian Farrel, Eric Rescorla and David Black led to improvement of this document.
 
 Chelsea Komlo and Britta Hale have contributed their deep expertise and consice and rigourous writing to this draft.
 
