@@ -1,7 +1,7 @@
 ---
-title: Definition of End-to-end Encryption
+title: Definition of End-to-end Encryption Among Users
 abbrev: e2ee
-docname: draft-knodel-e2ee-definition-11
+docname: draft-knodel-e2ee-definition-12
 category: info
 
 ipr: trust200902
@@ -129,7 +129,7 @@ End point
 
 An "end" either sends messages or receives them, usually both. Other systems on the path are just that: other systems. Other systems MAY be used to facilitate the sending of messages between both "ends", but are not "ends" themselves.
 
-It is, however, not trivial to establish the definition of an end point in isolation. {{hale}} Depending on the context, an "end" may be a user; a device colocated with the user; or a set of devices controlled by a user that want to simultaneously participate in the conversation.
+It is, however, not trivial to establish the definition of an end point in isolation. {{hale}} Depending on the context, an "end" may be a device colocated with the user or a set of devices controlled by a user that want to simultaneously participate in the conversation.
 
 End-to-end principle
 --------------------
