@@ -1,7 +1,7 @@
 ---
-title: Definition of End-to-end Encryption Among Users
+title: Definition of End-to-end Encryption
 abbrev: e2ee
-docname: draft-knodel-e2ee-definition-12
+docname: draft-knodel-e2ee-definition-13
 category: info
 
 ipr: trust200902
@@ -105,24 +105,16 @@ informative:
 
 --- abstract
 
-This document provides a definition of end-to-end encryption (E2EE) for communication systems that transfer content among internet users. E2EE is discussed from the perspectives of both expectations of ordinary internet users and required properties of implementations.
-
-End-to-end encryption is an application of cryptographic mechanisms to provide security and privacy to communication between endpoints. Such communication can include messages, email, video, audio, and other forms of media. E2EE provides security and privacy through confidentiality, integrity, authenticity and forward secrecy for communication amongst people.
-
-Improvements to end-to-end encryption strive to maximize the user's security and privacy while balancing usability and availability. 
+This document provides a definition of end-to-end encryption (E2EE). End-to-end encryption is an application of cryptographic mechanisms to provide security and privacy to communication between endpoints. Such communication can include messages, email, video, audio, and other forms of media. E2EE provides security and privacy through confidentiality, integrity, authenticity and forward secrecy for communication amongst people.
 
 --- middle
 
 Introduction
 ============
 
-A clear and shared definition of end-to-end encryption (E2EE) can provide designers and implementers information about what properties such a system must provide, inform internet users of what security and privacy guarantees they can expect from E2EE, and be useful in policy discussions related to communications privacy. 
-
 End-to-end encryption is an application of cryptographic mechanisms to provide security and privacy to communication between endpoints. End-to-end encrypted systems provide security and privacy through confidentiality, integrity, authenticity and forward secrecy for communication amongst people. For the scope of this document, such communication can include messages, email, video, audio, and other forms of media.
 
 Improvements to end-to-end encryption strive to maximize the user's security and privacy while balancing usability and availability. 
-
-End-to-end encryption, irrespective of the content or the specific methods employed, relies on two important and rigorous technical concepts: the end-to-end principle as defined in the IETF; and encryption, an application of cryptographic mechanisms and the primary means employed by the IETF to secure internet protocols and maintain the confidentiality of content delivered via these internet protocols. Where end-to-end encryption is comprised of these necessary constituent parts, a systems approach also defines their interplay. 
 
 End point
 ---------
@@ -146,18 +138,16 @@ Encryption can be applied in an end-to-end context in many ways. For example, ap
 Formal definition of end-to-end encryption
 ==========================================
 
-An end-to-end-encryption service provides confidentiality, integrity, authenticity and forward secrecy between ends.
+An end-to-end-encryption system provides confidentiality, integrity, authenticity and forward secrecy between ends.
 
-In the context of messaging, confidentiality implies that a system that uses "end-to-end [...] encryption would conceal communications between one user's instant messaging application through any intermediate devices and servers all the way to the recipient's instant messaging application." {{dkg}} Confidentiality is broken if content can be decrypted at any intermediate point.
+Confidentiality implies that a system that uses "end-to-end [...] encryption would conceal communications between one user's instant messaging application through any intermediate devices and servers all the way to the recipient's instant messaging application." {{dkg}} Thus confidentiality is broken if content can be decrypted at any intermediate point.
 
-As for integrity and authenticity, permission of data manipulation or creation of pseudo-identities for third parties to allow access under the user's identity also violate end-to-end encryption. In other words, the application functions only for the end user and does not perform functions for any other entity coverly, nor overtly, say even if that entity claims to have obtained the consent of the end user. Thus, end point authenticity must be established as (sub-)identities of the end user, and end-to-end integrity must also be maintained by the system. There is considerable system design flexibility available in the mechanisms for authentication and integrity, specifically data authentication, that still meet this requirement.
+Integrity and authenticity requires that the application functions only for the end user and does not perform functions for any other entity coverly, nor overtly, say even if that entity claims to have obtained the consent of the end user. Thus, end point authenticity must be established as (sub-)identities of the end user, and end-to-end integrity must also be maintained by the system. There is considerable system design flexibility available in the mechanisms for authentication and integrity, specifically data authentication, that still meet this requirement. Thus integrity and authenticity, and by extention E2EE, are broken if data is manipulated or pseudo-identities created for third party access.
 
 End-to-end encryption implementations
 =====================================
 
-When looking at implementations of end-to-end encryption from a design perspective, the first consideration is the list of fundamental features that distinguish an end-to-end encrypted system from one that does not employ end-to-end encryption. Secondly, one must consider the development goals for improving the features of end-to-end encryption, in other words, the challenges defined by the designers, developers and implementers of end-to-end encryption.
-
-The features and challenges listed below are framed comprehensively rather than from the perspective of their design, development, implementation or use.
+Below are fundamental properties that distinguish an end-to-end encrypted system from one that does not employ end-to-end encryption as well as the development challenges for improving the features of end-to-end encryption.
 
 Properties
 ----------
@@ -189,10 +179,10 @@ Loss Resilience
 : If a message is permanently lost by the network, sender(s) and/or recipient(s) should still be able to communicate.
 
 Deniability
-: Deniability ensures that anyone able to decrypt a record of the transcript, including message recipients, cannot cryptographically prove to others that a particular participant of a communication authored a specific message. As demonstrated by widely implemented protocols, this optional property must exist in conjunction with the necessary property of authentication, i.e. participants in a communication must be assured that they are communicating with the intended parties but this assurance cannot be transmitted to any other parties.
+: Deniability ensures that anyone able to decrypt a record of the transcript, including message recipients, cannot cryptographically prove to others that a particular participant of a communication authored a specific message. This optional property must exist in conjunction with the necessary property of authentication, i.e. participants in a communication must be assured that they are communicating with the intended parties but this assurance cannot be transmitted to any other parties.
 
 Post-compromise security
-: Post-compromise security is a security property that seeks to guarantee future confidentiality and integrity in the face of a passive end-point compromise and consequently that communication sent post-compromise is protected with the same security properties that existed before the compromise. It is usually achieved by adding new ephemeral key exchanges, ie new randomness, to the derivation of encryption/decryption keys every 'x' amount of time or after 'n' messages sent. Note that post-compromise security is not met in the face of active attackers that compromise an end-point. This property can add a level of complexity to a protocol as deriving new key material can be expensive, and, therefore, it has to be carefully evaluated as part of a system's design.
+: Post-compromise security is a security property that seeks to guarantee future confidentiality and integrity in the face of a passive end-point compromise and consequently that communication sent post-compromise is protected with the same security properties that existed before the compromise. It is usually achieved by adding new ephemeral key exchanges, ie new randomness, to the derivation of encryption/decryption keys every 'x' amount of time or after 'n' messages sent. Note that post-compromise security is not met in the face of active attackers that compromise an end-point. This property can add a level of complexity to a protocol as deriving new key material can be expensive, and, therefore, it has to be carefully balanced as part of a system's design.
 
 Metadata obfuscation
 : Digital communication inevitably generates data other than the content of the communication itself, such as IP addresses, user identifiers, group memberships, date and time of messages and size of messages. Inferred metadata includes interaction between IP addresses, time of first contact and frequencies of contact, login, and messages. To enhance the privacy and security of end-to-end encryption, steps should be taken to minimize, obscure or delete metadata.
@@ -213,7 +203,7 @@ Below is a list of some challenges currently faced by designers of end-to-end en
 
 * Existing protocols are vulnerable to metadata analysis, even though metadata is often as sensitive as message content. Metadata is unencrypted (and sometimes unencryptable) information that travels through the network and includes delivery-relevant details that servers require such as the account identity of end-points, timestamps, message size or more. Metadata is difficult to eliminate or obfuscate entirely.
 
-* Confidential and secure communications systems should also maintain the privacy of users but this is necessarily balanced with authentication and is related to the metadata problem for account identity.
+* Confidential and secure communications systems should also maintain the privacy of users but this is necessarily balanced with authentication and is related to the metadata problem for account identity. This can be particularly relevant for account recovery when the user has lost their credentials.
 
 * Users need to communicate in groups, but this presents scalability problems for traditional end-to-end encryption systems. Message Layer Security protocol {{mls}} is a modern end-to-end encrypted message protocol that addresses this scalability concern.
 
