@@ -119,7 +119,7 @@ Improvements to end-to-end encryption strive to maximize the user's security and
 End point
 ---------
 
-An "end" either sends messages or receives them, usually both. Other systems on the path are just that: other systems. Other systems MAY be used to facilitate the sending of messages between both "ends", but are not "ends" themselves.
+An "end" either sends messages or receives them, usually both. Other systems on the path are just that: other systems. Other systems can be used to facilitate the sending of messages between both "ends", but are not "ends" themselves.
 
 It is, however, not trivial to establish the definition of an end point in isolation. {{hale}} Depending on the context, an "end" may be a device colocated with the user or a set of devices controlled by a user that want to simultaneously participate in the conversation.
 
@@ -222,10 +222,16 @@ End-user expectations
 
 While the formal definition and properties of an end-to-end encrypted system relate to communication security and privacy, they do not draw from a comprehensive threat model or speak to what users expect from end-to-end encrypted communication. It is in this context that some designs and architectures of end-to-end encryption may ultimately run contrary to user expectations of end-to-end encrypted systems {{GEC-EU}}. Although some system designs do not directly violate "the math" of encryption algorithms, they do so by implicating and weakening other important aspects of an end-to-end encrypted _system_.
 
-A conversation is confidential
+Information confidentiality
 ------------------------------
 
-Users talking to one another in an end-to-end encrypted system should be the only ones that know what they are talking about {{RFC7624}}.
+Messages exchanged between one endpoint and another endpoint should be the only ones with access to with that information {{RFC7624}}. In other words, no intermediaries that assist in delivering information between the endpoints can view the messages.
+
+No matter the specifics, any methods used to access to the content of the messages by a third party would violate a user's expectations of end-to-end encrypted messaging. "[T]hese access methods scan message contents on the user’s [device]", which are then "scanned for matches against a database of prohibited content before, and sometimes after, the message is sent to the recipient" {{GEC-EU}}. Third party access also covers cases without scanning -- namely, it should not be possible for any third-party end point, even those under the user's identity as per Section 2.1, to access the data regardless of reason.
+
+If a method makes secure and private communication, intended to be sent over an encrypted channel between end points, available to parties other than the sender and intended recipient(s), that method violates the understood expectation of that security property.
+
+RFC 3552 talks about the Internet Threat model such as the assumption that the user can expect any communications systems, but perhaps especially end-to-end encrypted systems, to not be intentionally compromised {{RFC3552}}. Intentional compromises of end-to-end encryption are usually referred to as "backdoors" but are often presented as additional design features under terms like "key escrow" or "exceptional access". Users of end-to-end encryption would not expect a front, back or side door entrance into their confidential conversations and would expect a provider to actively resist -- technically and legally -- compromise through these means. Compromising endpoints in this way would expose messages to entities beyond the intended endpoints.
 
 Providers are trustworthy
 -------------------------
@@ -239,24 +245,12 @@ Therefore, a trustworthy end-to-end encrypted communication system is the provid
 
 A proper implementation of end-to-end encryption significantly reduces the need of a user to trust a provider. However, this is contingent on users having some guarantee that the system actually works in conformance to the stated specification and security properties of end-to-end encryption. One way by which users can increase their trust in the system and confirm their system is performing in accordance to cryptographic protocols' specifications is using systems that are releasing their software as open source.  Open source software allows technical users to analyse the system and be assured of its functioning.  While most users will not be able to do so, as typical users lack the technological knowledge needed to analyse source code, technical communities can do so.  It is vital that systems provide publicly accessible security analyses of their source code, enabling reproducible builds and audits and investigations that can be published and peer reviewed.
 
-Access by a third-party is impossible
--------------------------------------
-
-No matter the specifics, any methods used to access to the content of the messages by a third party would violate a user's expectations of end-to-end encrypted messaging. "[T]hese access methods scan message contents on the user’s [device]", which are then "scanned for matches against a database of prohibited content before, and sometimes after, the message is sent to the recipient" {{GEC-EU}}. Third party access also covers cases without scanning -- namely, it should not be possible for any third-party end point, even those under the user's identity as per Section 2.1, to access the data regardless of reason.
-
-If a method makes secure and private communication, intended to be sent over an encrypted channel between end points, available to parties other than the sender and intended recipient(s), that method violates the understood expectation of that security property.
-
-Pattern inference is minimised
+Minimal metadata
 ------------------------------
 
 Analyses such as traffic fingerprinting or other encrypted or unencrypted data analysis techniques, outside of or as part of end-to-end encrypted system design, allow third parties to draw inferences from communication that was intended to be confidential. "By allowing private user data to be scanned via direct access by servers and their providers," the use of these methods should be considered an affront to "the privacy expectations of users of end-to-end encrypted communication systems" {{GEC-EU}}.
 
 Not only should an end-to-end encrypted system value user data privacy by not explicitly enabling pattern inference, it should actively be attempting to solve issues of metadata and traceability (enhanced metadata) through further innovation that stays ahead of advances in these techniques.
-
-The end-to-end encryption is not compromised
-----------------------------------
-
-RFC 3552 talks about the Internet Threat model such as the assumption that the user can expect any communications systems, but perhaps especially end-to-end encrypted systems, to not be intentionally compromised {{RFC3552}}. Intentional compromises of end-to-end encryption are usually referred to as "backdoors" but are often presented as additional design features under terms like "key escrow" or "exceptional access". Users of end-to-end encryption would not expect a front, back or side door entrance into their confidential conversations and would expect a provider to actively resist -- technically and legally -- compromise through these means.
 
 Conclusions
 ===========
