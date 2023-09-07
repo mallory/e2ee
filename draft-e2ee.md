@@ -140,58 +140,12 @@ Formal definition of end-to-end encryption
 
 An end-to-end-encryption system provides confidentiality, integrity, authenticity and forward secrecy between ends.
 
-Confidentiality implies that a system that uses "end-to-end [...] encryption would conceal communications between one user's instant messaging application through any intermediate devices and servers all the way to the recipient's instant messaging application." {{dkg}} Thus confidentiality is broken if content can be decrypted at any intermediate point.
+Confidentiality implies that a system that uses "end-to-end [...] encryption would conceal communications between one user's instant messaging application through any intermediate devices and servers all the way to the recipient's instant messaging application." {{dkg}} Thus confidentiality is broken if content can be decrypted at any intermediate point. Confidentiality is strengthened if encryption is forward-secure, where forward secrecy is a security property that prevents attackers from decrypting encrypted data they have previously captured over a communication channel before the time of compromise. Forward secrecy is usually achieved by regularly deriving new encryption/decryption keys, and destroying old keys that are no longer required to encrypt or decrypt messages.
 
 Integrity and authenticity requires that the application functions only for the end user and does not perform functions for any other entity coverly, nor overtly, say even if that entity claims to have obtained the consent of the end user. Thus, end point authenticity must be established as (sub-)identities of the end user, and end-to-end integrity must also be maintained by the system. There is considerable system design flexibility available in the mechanisms for authentication and integrity, specifically data authentication, that still meet this requirement. Thus integrity and authenticity, and by extention E2EE, are broken if data is manipulated or pseudo-identities created for third party access.
 
-End-to-end encryption implementations
+Deployment Challenges
 =====================================
-
-Below are fundamental properties that distinguish an end-to-end encrypted system from one that does not employ end-to-end encryption as well as the development challenges for improving the features of end-to-end encryption.
-
-Properties
-----------
-
-This section defines the security properties of an end-to-end encrypted system. The properties of end-to-end encryption from an implementation perspective can be split into two categories: 1) the required core properties of confidentiality, integrity, authenticity and forward secrecy; and 2) recommended additional properties for improved security, such as availability, deniability and post-compromise security, which are desirable enhancements.
-
-### Necessary properties
-
-Confidentiality
-: A system provides message confidentiality if only the sender and intended recipient(s) can read the message plaintext, i.e. messages sent between participants can only be read by the agreed upon participants in the group and all participants share the identical group member list.
-
-Integrity
-: A system provides message integrity when it guarantees that messages have not been modified in transit. If a message has been modified, it must be detected in a reliable way by the recipient.
-
-Authentication
-: A system provides authentication if the recipient and sender can verify each other's identities in relation to the contents of their communications.
-
-Forward secrecy
-: Forward secrecy is a security property that prevents attackers from decrypting encrypted data they have previously captured over a communication channel before the time of compromise, if the attacker compromises one of the endpoints. Forward secrecy is usually achieved by regularly deriving new encryption/decryption keys, and destroying old keys that are no longer required to encrypt or decrypt messages.
-
-### Optional/desirable properties and features
-
-There is a set of optional/desirable features that a end-to-end system can provide. These properties can be related to the network, to the user interface or specialized variants of the previous features.
-
-Availability
-: A system provides high availability if the user is able to decrypt the contents of the message when they so desire and potentially from more than one device. For example, a message can arrive to a recipient even after they have been offline for a long time. Note that applications that use this feature often implement a threshold for this property: number or aggregate size of messages; or messages from a month ago can be read by a user that has been offline, but not messages from a year ago.
-
-Loss Resilience
-: If a message is permanently lost by the network, sender(s) and/or recipient(s) should still be able to communicate.
-
-Deniability
-: Deniability ensures that anyone able to decrypt a record of the transcript, including message recipients, cannot cryptographically prove to others that a particular participant of a communication authored a specific message. This optional property must exist in conjunction with the necessary property of authentication, i.e. participants in a communication must be assured that they are communicating with the intended parties but this assurance cannot be transmitted to any other parties.
-
-Post-compromise security
-: Post-compromise security is a security property that seeks to guarantee future confidentiality and integrity in the face of a passive end-point compromise and consequently that communication sent post-compromise is protected with the same security properties that existed before the compromise. It is usually achieved by adding new ephemeral key exchanges, ie new randomness, to the derivation of encryption/decryption keys every 'x' amount of time or after 'n' messages sent. Note that post-compromise security is not met in the face of active attackers that compromise an end-point. This property can add a level of complexity to a protocol as deriving new key material can be expensive, and, therefore, it has to be carefully balanced as part of a system's design.
-
-Metadata obfuscation
-: Digital communication inevitably generates data other than the content of the communication itself, such as IP addresses, user identifiers, group memberships, date and time of messages and size of messages. Inferred metadata includes interaction between IP addresses, time of first contact and frequencies of contact, login, and messages. To enhance the privacy and security of end-to-end encryption, steps should be taken to minimize, obscure or delete metadata.
-
-Disappearing messages
-: For confidential conversations, deleting one-by-one sensitive messages typically depends on a level of client-side security that is unsustainable. For example, endusers can still copy text or screenshot images outside the secured client application.  A certain level of trust among users of the system is required.  That said, manual actions like "delete for me" and "delete for everyone", or time-based automated deletion of content with "disppearing messages" still provide a valuable defense amongst trusted parties in the event of a compromise of a device of one of the participants.
-
-Challenges
-----------
 
 Below is a list of some challenges currently faced by designers of end-to-end encrypted systems. 
 
