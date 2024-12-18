@@ -49,6 +49,7 @@ normative:
 
 informative:
 
+   RFC9580:
    RFC9420:
    RFC1958:
    RFC2119:
@@ -74,13 +75,6 @@ informative:
      author:
         - ins: D. Gillmor
      target: https://tools.ietf.org/html/draft-dkg-hrpc-glossary-00
-
-   openpgp:
-     title: "Open Specification for Pretty Good Privacy"
-     date: 2020
-     author:
-        - ins: IETF
-     target: https://datatracker.ietf.org/doc/charter-ietf-openpgp
 
    GEC-EU:
      title: "Breaking encryption myths: What the European Commission’s leaked report got wrong about online security"
@@ -127,7 +121,7 @@ Encryption
 ----------
 Encryption is the process of using cryptographic methods to convert plaintext to ciphertext that is decipherable only by authorized parties. Encryption can help extend the end-to-end principle in application design, where the function of the network is limited to efficiently transporting messages, but additionally the network cannot access any part of the message itself.
 
-Encryption can be applied in an end-to-end context in many ways. For example, applications may use the double-ratchet algorithm (which uses an authenticated encryption scheme) and of an Authenticated Key Exchange (AKE). The usage of these algorithms (or variants of these) is present in many modern messenger applications such as those adopted in the IETF Messaging Layer Security working group, whose charter is to create a document that satisfies the need for several internet applications for group key establishment and message protection protocols {{RFC9420}}. OpenPGP, mostly used for email, uses a different technique to achieve security and privacy. It is also chartered in the IETF to create a specification that covers object encryption, object signing, and identity certification {{openpgp}}. Both protocols rely on the use of asymmetric and symmetric encryption, and exchange long-term identity public keys amongst end points.
+Encryption can be applied in an end-to-end context in many ways. For example, applications may use the double-ratchet algorithm (which uses an authenticated encryption scheme) and of an Authenticated Key Exchange (AKE). The usage of these algorithms (or variants of these) is present in many modern messenger applications such as those adopted in the IETF Messaging Layer Security working group, whose charter is to create a document that satisfies the need for several internet applications for group key establishment and message protection protocols {{RFC9420}}. OpenPGP, mostly used for email, uses a different technique to achieve security and privacy. It is also chartered in the IETF to create a specification that covers object encryption, object signing, and identity certification {{RFC9580}}. Both protocols rely on the use of asymmetric and symmetric encryption, and exchange long-term identity public keys amongst end points.
 
 Formal definition of end-to-end encryption
 ==========================================
