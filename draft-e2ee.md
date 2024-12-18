@@ -1,7 +1,7 @@
 ---
 title: Definition of End-to-end Encryption
 abbrev: e2ee
-docname: draft-knodel-e2ee-definition-14
+docname: draft-knodel-e2ee-definition-12
 category: info
 
 ipr: trust200902
@@ -49,6 +49,7 @@ normative:
 
 informative:
 
+   RFC9420:
    RFC1958:
    RFC2119:
    RFC3238:
@@ -73,13 +74,6 @@ informative:
      author:
         - ins: D. Gillmor
      target: https://tools.ietf.org/html/draft-dkg-hrpc-glossary-00
-
-   mls:
-     title: "Messaging Layer Security"
-     date: 2018
-     author:
-        - ins: IETF
-     target: https://datatracker.ietf.org/doc/charter-ietf-mls
 
    openpgp:
      title: "Open Specification for Pretty Good Privacy"
@@ -133,7 +127,7 @@ Encryption
 ----------
 Encryption is the process of using cryptographic methods to convert plaintext to ciphertext that is decipherable only by authorized parties. Encryption can help extend the end-to-end principle in application design, where the function of the network is limited to efficiently transporting messages, but additionally the network cannot access any part of the message itself.
 
-Encryption can be applied in an end-to-end context in many ways. For example, applications may use the double-ratchet algorithm (which uses an authenticated encryption scheme) and of an Authenticated Key Exchange (AKE). The usage of these algorithms (or variants of these) is present in many modern messenger applications such as those adopted in the IETF Messaging Layer Security working group, whose charter is to create a document that satisfies the need for several internet applications for group key establishment and message protection protocols {{mls}}. OpenPGP, mostly used for email, uses a different technique to achieve security and privacy. It is also chartered in the IETF to create a specification that covers object encryption, object signing, and identity certification {{openpgp}}. Both protocols rely on the use of asymmetric and symmetric encryption, and exchange long-term identity public keys amongst end points.
+Encryption can be applied in an end-to-end context in many ways. For example, applications may use the double-ratchet algorithm (which uses an authenticated encryption scheme) and of an Authenticated Key Exchange (AKE). The usage of these algorithms (or variants of these) is present in many modern messenger applications such as those adopted in the IETF Messaging Layer Security working group, whose charter is to create a document that satisfies the need for several internet applications for group key establishment and message protection protocols {{RFC9420}}. OpenPGP, mostly used for email, uses a different technique to achieve security and privacy. It is also chartered in the IETF to create a specification that covers object encryption, object signing, and identity certification {{openpgp}}. Both protocols rely on the use of asymmetric and symmetric encryption, and exchange long-term identity public keys amongst end points.
 
 Formal definition of end-to-end encryption
 ==========================================
@@ -205,7 +199,7 @@ Below is a list of some challenges currently faced by designers of end-to-end en
 
 * Confidential and secure communications systems should also maintain the privacy of users but this is necessarily balanced with authentication and is related to the metadata problem for account identity. This can be particularly relevant for account recovery when the user has lost their credentials.
 
-* Users need to communicate in groups, but this presents scalability problems for traditional end-to-end encryption systems. Message Layer Security protocol {{mls}} is a modern end-to-end encrypted message protocol that addresses this scalability concern.
+* Users need to communicate in groups, but this presents scalability problems for traditional end-to-end encryption systems. Message Layer Security protocol {{RFC9420}} is a modern end-to-end encrypted message protocol that addresses this scalability concern.
 
 * The whole communication should remain secure if only one message is compromised. However, for encrypted communication, in some schemes, you must currently choose between forward secrecy or the ability to fully communicate asynchronously. This presents a problem for application design that uses end-to-end encryption for asynchronous messaging over email, RCS, etc.
 
