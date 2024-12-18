@@ -1,7 +1,7 @@
 ---
 title: Definition of End-to-end Encryption
 abbrev: e2ee
-docname: draft-knodel-e2ee-definition-13
+docname: draft-knodel-e2ee-definition-14
 category: info
 
 ipr: trust200902
@@ -25,8 +25,8 @@ author:
 -
        ins: M. Knodel
        name: Mallory Knodel
-       organization: CDT
-       email: mknodel@cdt.org
+       organization: NYU
+       email: mallory.knodel@nyu.edu
 
 -
        ins: S. Celi
